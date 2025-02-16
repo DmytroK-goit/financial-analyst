@@ -1,0 +1,314 @@
+.container {
+  min-width: 320px;
+  max-width: 375px;
+  margin: 0 auto;
+  height: 100vh;
+  padding: 16px;
+}
+
+.sign-up-page {
+  box-sizing: border-box;
+  border-radius: 30px;
+  height: 100vh;
+}
+.sign-up-form {
+  position: relative;
+  background-color: #f7f9fc;
+  flex-direction: column;
+  display: flex;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f9fc;
+  border-radius: 30px;
+  height: calc(100vh - 64px);
+}
+
+.toaster-container {
+  position: fixed;
+  /* top: 0;
+  left: 0; */
+  width: calc(100vw - 32px);
+  padding: 16px;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* ------------------ЛОГО------------- */
+
+.sign-up-page .logo {
+  position: absolute;
+  top: 24px;
+  left: 16px;
+  display: flex;
+  justify-content: flex-start;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.11111;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #323f47;
+  cursor: pointer;
+}
+.sign-up-page .logo:focus {
+  outline: none;
+  transform: scale(1.05);
+  color: #000;
+}
+.sign-up-page .logo:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 170px 16px;
+  width: 343px;
+  height: 780px;
+}
+
+/* -------------------TITLE SIGN UP-------------------- */
+.sign-up-page .form-title {
+  margin-bottom: 32px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--color-font-main);
+}
+/* ---------------------INPUTS----------------- */
+.sign-up-page .input_main_wrapper {
+  flex-direction: column;
+}
+
+.sign-up-page .input__wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+.input__wrapper label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #323f47;
+  text-align: left;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+/* -------------------input field------------- */
+.sign-up-page .input__field {
+  position: relative;
+  border: 1px solid rgba(47, 47, 47, 0.2);
+  border-radius: 15px;
+  width: 100%;
+  padding: 16px;
+
+  height: 56px;
+  font-size: 16px;
+  background: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sign-up-page .input__field:focus {
+  outline: none;
+  border-color: rgba(47, 47, 47, 0.4);
+}
+
+.sign-up-page .input__field--error {
+  border-color: #ef5050;
+  color: #ef5050;
+}
+
+.input-password {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* --------------input icon------------- */
+
+.sign-up-page .input__icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  stroke-width: 1.8px;
+  stroke: #2f2f2f;
+  fill: none;
+  width: 20px;
+  height: 20px;
+}
+
+.input__icon:hover,
+.input__icon:focus,
+.input__icon.active {
+  color: #000;
+}
+.input__icon:focus {
+  outline: none;
+}
+.sign-up-page .error-text {
+  font-size: 14px;
+  color: #ef5050;
+  margin-top: 8px;
+  text-align: left;
+}
+/* ---------------BUTTON----------------- */
+.sign-up-page .submit-button {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  background-color: #9be1a0;
+  color: #323f47;
+  border-radius: 30px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.sign-up-page .submit-button:hover,
+.sign-up-page .submit-button:focus {
+  background-color: #87d28d;
+  cursor: pointer;
+}
+/* ---------TEXT LINK------------- */
+.sign-up-page .text-link {
+  font-size: 16px;
+  color: rgba(47, 47, 47, 0.5);
+  text-align: center;
+}
+
+.sign-up-page .text-link a {
+  color: #2f2f2f;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+.sign-up-page .text-link a:hover {
+  text-decoration: none;
+}
+.sign-up-page .sign-up-link {
+  text-decoration: none;
+  color: #2f2f2f;
+  cursor: pointer;
+}
+.sign-up-link:focus,
+.sign-up-link:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.advantages-section {
+  display: none;
+  position: relative;
+}
+
+.userCount {
+  position: absolute;
+  top: 537px;
+  left: 45%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.advantages-container {
+  position: relative;
+  z-index: 1;
+}
+.sign-up-page .advantages-container {
+  display: none;
+}
+
+/* ------------------Планшет------------------ */
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .advantages-section {
+    display: block;
+  }
+  .sign-up-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .container {
+    min-width: 768px;
+    padding: 32px;
+  }
+
+  .sign-up-page .logo {
+    top: 32px;
+    left: 32px;
+    font-size: 24px;
+  }
+  .form-wrapper {
+    width: 436px;
+    height: 506px;
+    padding: 32px;
+
+    height: calc(100vh - 64px);
+    min-height: 736px;
+  }
+  .input_main_wrapper {
+    width: 100%;
+  }
+  .sign-up-page .form-title {
+    font-size: 36px;
+    line-height: 1.05556;
+  }
+  .input__wrapper label {
+    margin-top: 20px;
+  }
+}
+
+/* ------------------------Десктоп----------------- */
+@media screen and (min-width: 1440px) {
+  .container {
+    min-width: 1440px;
+    height: 100vh;
+    width: 100%;
+    flex-direction: row;
+    gap: 32px;
+    padding: 32px;
+    margin: 0 auto;
+  }
+
+  .sign-up-page .logo {
+    font-size: 24px;
+    top: 32px;
+    left: 33px;
+  }
+  .sign-up-page {
+    display: flex;
+    align-items: center;
+    width: 1440px;
+    width: 100%;
+    flex-direction: row;
+    /* gap: 32px; */
+  }
+
+  .sign-up-form {
+    width: 672px;
+    height: 736px;
+    margin-right: 32px;
+  }
+
+  .form-wrapper {
+    width: 436px;
+    margin-top: 74px;
+    margin-bottom: 100px;
+  }
+  .sign-up-page .advantages-container {
+    display: block;
+  }
+}

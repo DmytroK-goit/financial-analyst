@@ -1,0 +1,57 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Контейнер */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1440px;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #c689f1, #302141);
+}
+
+/* Заголовок */
+h1 {
+  font-size: 42px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+/* Стилізація кнопок */
+.container a {
+  display: block;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 12px 24px;
+  margin: 10px 0;
+  color: white;
+  background: #ff4b5c;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  width: 200px;
+  text-align: center;
+}
+
+.container a:hover {
+  background: #e04352;
+  transform: scale(1.05);
+}
+
+.container a:active {
+  transform: scale(0.95);
+}
