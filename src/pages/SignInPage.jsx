@@ -9,7 +9,7 @@ import { selectIsLoading, selectUserCount } from "../redux/UserAuth/selectors";
 import css from "./SignInPage.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import LoaderComponent from "../components/LoadingSpinner/LoaderComponent.jsx";
+// import LoaderComponent from "../components/LoadingSpinner/LoaderComponent.jsx";
 
 const schema = yup.object().shape({
   email: yup.string().email("Invalid email").required("Email is required"),
@@ -66,7 +66,7 @@ const SignInForm = () => {
   };
 
   if (isLoadingLogin) {
-    return <LoaderComponent />;
+    return <p>LOADING</p>;
   }
 
   return (
