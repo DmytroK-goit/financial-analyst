@@ -25,9 +25,7 @@ function App() {
         />
         <Route
           path="transaction"
-          element={
-            <PrivateRoute component={<Finance />} redirectTo="/signin" />
-          }
+          element={<PrivateRoute element={<Finance />} redirectTo="/" />}
         />
       </Route>
 

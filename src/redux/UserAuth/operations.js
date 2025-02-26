@@ -24,7 +24,7 @@ finance.interceptors.response.use(
     if (error.response && error.response.status === 401) {
       localStorage.clear();
       setAuthHeader(null);
-      window.location.href = "/signin";
+      window.location.href = "/";
     }
     return Promise.reject(error);
   }
@@ -101,14 +101,9 @@ export const updateUser = createAsyncThunk(
         throw new Error("No token found");
       }
       setAuthHeader(token);
-      const { data } = await finance.patch("users/update", updateData);
-      const date = new Date().toISOString().split("T")[0];
-      await thunkApi.dispatch(dayWater(date));
-      const month = new Date();
-      const formattedDate = `${month.getFullYear()}-${String(
-        month.getMonth() + 1
-      ).padStart(2, "0")}`;
-      await thunkApi.dispatch(monthWater(formattedDate));
+      const { data } = await finance.patch("users/update", updateData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       toast.success(`User updated ${data.data.name}`);
       await thunkApi.dispatch(currentUser());
       return data;
