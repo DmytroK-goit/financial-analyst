@@ -18,3 +18,25 @@ export const addTransaction = createAsyncThunk(
     }
   }
 );
+
+export const getTransaction = createAsyncThunk(
+  "getTransaction",
+  async (month, year, thunkApi) => {
+    try {
+      const token = localStorage.getItem("token");
+      const { data } = await finance.post(
+        `transaction/summary?year=${year}&month=${month}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      return data;
+    } catch (error) {
+      if (error.response?.status === 404) {
+        return null;
+      }
+      toast.error(error.message);
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
