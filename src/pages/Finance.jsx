@@ -1,21 +1,19 @@
-import { useDispatch } from "react-redux";
-import { logout } from "../redux/UserAuth/operations";
+import { useSelector } from "react-redux";
 import { AddForm } from "../components/AddForm/AddForm";
-import { useEffect } from "react";
-import { exchangeRate } from "../redux/ExchangeRate";
-
+import { YearMonthForm } from "../components/YearMonthForm/YearMonthForm";
+import { selectUserName } from "../redux/UserAuth/selectors";
+import s from "./Finance.module.css";
+import { MonthTransactions } from "../components/MonthTransactions/MonthTransactions";
 export const Finance = () => {
-  const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(exchangeRate());
-  // }, []);
-
+  const name = useSelector(selectUserName);
   return (
-    <>
-      <AddForm />
-
-      <h2>Finance</h2>
-    </>
+    <div className={s.container}>
+      <h2>{name} your Finance Page</h2>
+      <div className={s.forms}>
+        <AddForm />
+        <YearMonthForm />
+      </div>
+      <MonthTransactions />
+    </div>
   );
 };

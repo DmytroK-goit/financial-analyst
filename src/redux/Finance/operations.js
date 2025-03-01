@@ -1,5 +1,4 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { finance } from "../UserAuth/operations";
 
@@ -21,15 +20,20 @@ export const addTransaction = createAsyncThunk(
 
 export const getTransaction = createAsyncThunk(
   "getTransaction",
-  async (month, year, thunkApi) => {
+  async ({ year, month }, thunkApi) => {
     try {
       const token = localStorage.getItem("token");
-      const { data } = await finance.post(
-        `transaction/summary?year=${year}&month=${month}`,
+
+      const parsedYear = String(year);
+      const parsedMonth = String(month).padStart(2, "0");
+
+      const { data } = await finance.get(
+        `transaction/summary?year=${parsedYear}&month=${parsedMonth}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
+
       return data;
     } catch (error) {
       if (error.response?.status === 404) {

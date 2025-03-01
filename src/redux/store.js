@@ -3,18 +3,21 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { authSlice } from "./UserAuth/slice";
 import dateReducer from "./DateSlice";
+import { transactionReducer } from "./Finance/slice"; // ✅ Імпортуємо transactionReducer
+
 const persistConfig = {
   key: "root",
   storage,
   whitelist: ["user", "isLoggedIn", "isLoadingLogin"],
 };
 
-const persistedReducer = persistReducer(persistConfig, authSlice);
+const persistedAuthReducer = persistReducer(persistConfig, authSlice);
 
 export const store = configureStore({
   reducer: {
-    auth: persistedReducer,
+    auth: persistedAuthReducer,
     date: dateReducer,
+    transaction: transactionReducer, // ✅ Додаємо transactionReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

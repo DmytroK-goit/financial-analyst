@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.container h2 {
+  text-align: center;
+}
+.forms {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}

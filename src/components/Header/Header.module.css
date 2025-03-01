@@ -6,7 +6,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 1440px;
+  border-radius: 10px;
   padding: 16px 32px;
   background-color: #6a0dad;
   border-radius: 12px;
