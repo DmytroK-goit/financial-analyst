@@ -4,6 +4,7 @@ import { YearMonthForm } from "../components/YearMonthForm/YearMonthForm";
 import { selectUserName } from "../redux/UserAuth/selectors";
 import s from "./Finance.module.css";
 import { MonthTransactions } from "../components/MonthTransactions/MonthTransactions";
+import { YearlyReport } from "../components/YearlyReport/YearlyReport";
 export const Finance = () => {
   const name = useSelector(selectUserName);
   return (
@@ -12,6 +13,7 @@ export const Finance = () => {
       <div className={s.forms}>
         <AddForm />
         <YearMonthForm />
+        <YearlyReport />
       </div>
       <MonthTransactions />
     </div>

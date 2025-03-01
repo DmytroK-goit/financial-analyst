@@ -44,3 +44,28 @@ export const getTransaction = createAsyncThunk(
     }
   }
 );
+export const getTransactionYear = createAsyncThunk(
+  "getTransactionYear",
+  async ({ year }, thunkApi) => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const parsedYear = String(year);
+
+      const { data } = await finance.get(
+        `transaction/income-expenses?year=${parsedYear}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      return data;
+    } catch (error) {
+      if (error.response?.status === 404) {
+        return null;
+      }
+      toast.error(error.message);
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);

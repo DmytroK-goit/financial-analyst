@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getTransaction } from "../../redux/Finance/operations";
+import {
+  getTransaction,
+  getTransactionYear,
+} from "../../redux/Finance/operations";
 import s from "./YearMonthForm.module.css";
 
 export const YearMonthForm = () => {
   const dispatch = useDispatch();
-  const [month, setMonth] = useState("");
-  const [year, setYear] = useState("");
+  const [month, setMonth] = useState(new Date().getMonth() + 1);
+  const [year, setYear] = useState(new Date().getFullYear());
 
   useEffect(() => {
-    if (year && month) {
-      dispatch(getTransaction({ year, month })); // ✅ Передаємо одним об'єктом
-    }
+    if (!year || !month) return;
+    dispatch(getTransaction({ year, month }));
+    dispatch(getTransactionYear({ year }));
   }, [year, month, dispatch]);
 
   const handleMonthChange = (e) => {
@@ -21,7 +24,13 @@ export const YearMonthForm = () => {
   const handleYearChange = (e) => {
     setYear(e.target.value);
   };
-  console.log(year, month);
+
+  const handleSearch = () => {
+    if (year && month) {
+      dispatch(getTransaction({ year, month }));
+      dispatch(getTransactionYear({ year }));
+    }
+  };
 
   return (
     <form className={s.form}>
@@ -47,6 +56,9 @@ export const YearMonthForm = () => {
           ))}
         </select>
       </label>
+      <button type="button" onClick={handleSearch} className={s.searchButton}>
+        Пошук
+      </button>
     </form>
   );
 };

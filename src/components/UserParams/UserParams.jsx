@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser } from "../../redux/UserAuth/selectors";
-import { updateUser } from "../../redux/UserAuth/operations"; // Redux action
+import { updateUser } from "../../redux/UserAuth/operations";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import s from "./UserParams.module.css";
