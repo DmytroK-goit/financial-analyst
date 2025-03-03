@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
 import { selectYearTransactions } from "../../redux/Finance/selectors";
 import s from "./YearlyReport.module.css";
+import { selectYear } from "../../redux/YearMonthSlice";
 
 export const YearlyReport = () => {
   const yearData = useSelector(selectYearTransactions);
-  console.log(yearData);
+  const year = useSelector(selectYear);
 
   if (!yearData || !yearData.yearly) {
     return <p>Завантаження...</p>;
@@ -14,7 +15,7 @@ export const YearlyReport = () => {
 
   return (
     <div className={s.report}>
-      <h2>Фінансовий звіт за {yearly.year || new Date().getFullYear()}</h2>
+      <h2>Фінансовий звіт за {year || new Date().getFullYear()}</h2>
       <div className={s.summary}>
         <p>
           💰 Загальний дохід: <strong>{yearly.totalIncome} грн</strong>

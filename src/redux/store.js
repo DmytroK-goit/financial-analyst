@@ -3,7 +3,8 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { authSlice } from "./UserAuth/slice";
 import dateReducer from "./DateSlice";
-import { transactionReducer } from "./Finance/slice"; // ✅ Імпортуємо transactionReducer
+import { transactionReducer } from "./Finance/slice";
+import yearmonthReducer from "./YearMonthSlice";
 
 const persistConfig = {
   key: "root",
@@ -17,7 +18,8 @@ export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     date: dateReducer,
-    transaction: transactionReducer, // ✅ Додаємо transactionReducer
+    yearmonth: yearmonthReducer,
+    transaction: transactionReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

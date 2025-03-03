@@ -14,8 +14,8 @@ export const Finance = () => {
         <AddForm />
         <YearMonthForm />
         <YearlyReport />
+        <MonthTransactions />
       </div>
-      <MonthTransactions />
     </div>
   );
 };

@@ -14,15 +14,10 @@
 }
 
 /* Центруємо контент */
-/* body {
-  margin: 0;
+body {
   display: flex;
+  margin: 0 auto;
   justify-content: center;
-  align-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  text-align: center;
-  padding-top: 80px;
 }
 
 /* Контейнер для контенту */

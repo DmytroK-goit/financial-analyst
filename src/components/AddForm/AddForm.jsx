@@ -1,12 +1,21 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import s from "./AddForm.module.css";
-import { addTransaction } from "../../redux/Finance/operations";
+import {
+  addTransaction,
+  getTransaction,
+  getTransactionYear,
+} from "../../redux/Finance/operations";
+import { selectIsLoading } from "../../redux/Finance/selectors";
+import { selectMonth, selectYear } from "../../redux/YearMonthSlice";
 
 export const AddForm = () => {
   const dispatch = useDispatch();
+  const loading = useSelector(selectIsLoading);
+  const year = useSelector(selectYear);
+  const month = useSelector(selectMonth);
 
   const initialValues = {
     type: "income",
@@ -38,8 +47,10 @@ export const AddForm = () => {
     description: Yup.string(),
   });
 
-  const handleSubmit = (values, { resetForm }) => {
-    dispatch(addTransaction(values));
+  const handleSubmit = async (values, { resetForm }) => {
+    await dispatch(addTransaction(values));
+    await dispatch(getTransaction({ year, month }));
+    await dispatch(getTransactionYear({ year }));
     resetForm();
   };
 
@@ -89,7 +100,7 @@ export const AddForm = () => {
         </label>
         <ErrorMessage name="date" component="div" className={s.error} />
 
-        <label>
+        <label className={s.description}>
           Description:
           <Field type="text" name="description" />
         </label>

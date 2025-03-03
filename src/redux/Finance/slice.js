@@ -7,7 +7,6 @@ import {
 
 const initialState = {
   itemsMonth: [],
-  itemsYearMonth: [],
   itemsYear: [],
   isLoading: false,
   error: null,
@@ -23,9 +22,9 @@ const transactionSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(addTransaction.fulfilled, (state, action) => {
-        state.itemsMonth.push(action.payload);
         state.isLoading = false;
       })
+
       .addCase(addTransaction.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
@@ -36,6 +35,7 @@ const transactionSlice = createSlice({
       })
       .addCase(getTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
+
         state.itemsMonth = action.payload;
       })
       .addCase(getTransaction.rejected, (state, action) => {
