@@ -11,8 +11,11 @@ export const Finance = () => {
     <div className={s.container}>
       <h2>{name} your Finance Page</h2>
       <div className={s.forms}>
-        <AddForm />
-        <YearMonthForm />
+        <div className={s.forms_add_date}>
+          <AddForm />
+          <YearMonthForm />
+        </div>
+
         <YearlyReport />
         <MonthTransactions />
       </div>
