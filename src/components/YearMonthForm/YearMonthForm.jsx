@@ -10,6 +10,7 @@ import {
   getTransaction,
   getTransactionYear,
 } from "../../redux/Finance/operations";
+import s from "./YearMonthForm.module.css";
 
 export const YearMonthForm = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ export const YearMonthForm = () => {
   }, [year, month, dispatch]);
 
   return (
-    <form>
+    <form className={s.form}>
       <label>
         Виберіть рік:
         <input type="number" value={year} onChange={handleYearChange} />

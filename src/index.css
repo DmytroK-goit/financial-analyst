@@ -16,27 +16,17 @@ body {
   margin: 0;
   padding: 0;
 }
+
 /* Центруємо контент */
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   min-height: 100vh;
+  margin-top: 80px;
 }
-/* Контейнер для контенту */
-/* #root {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 1440px;
-  padding: 20px;
-} */
-*/
 
-/* Посилання */
 a {
   font-weight: 500;
   color: #646cff;

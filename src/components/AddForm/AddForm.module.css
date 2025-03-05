@@ -8,6 +8,7 @@
   border-radius: 8px;
   background: #f9f9f9;
   height: 600px;
+  box-shadow: 0 14px 18px rgba(61, 183, 204, 0.5);
 }
 
 label {
