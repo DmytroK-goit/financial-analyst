@@ -13,14 +13,15 @@
 }
 .sign-up-form {
   position: relative;
-  background-color: #f7f9fc;
+  /* background-color: #f7f9fc; */
   flex-direction: column;
   display: flex;
   margin: 0;
   align-items: center;
   justify-content: center;
-  background-color: #f7f9fc;
+  /* background-color: #f7f9fc; */
   border-radius: 30px;
+  width: 100%;
   height: calc(100vh - 64px);
 }
 
@@ -291,6 +292,7 @@
   .sign-up-page {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 1440px;
     width: 100%;
     flex-direction: row;

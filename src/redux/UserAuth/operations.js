@@ -141,7 +141,7 @@ export const refresh = createAsyncThunk("auth/refresh", async (_, thunkApi) => {
     if (!token) {
       throw new Error("No token found");
     }
-    const { data } = await aquaTrack.get("users/refresh", {
+    const { data } = await finance.get("users/refresh", {
       headers: { Authorization: `Bearer ${token}` },
     });
     localStorage.setItem("token", data.accessToken);
