@@ -61,8 +61,6 @@ export const login = createAsyncThunk(
       toast.success("Login successful");
       setAuthHeader(data.data.accessToken);
       localStorage.setItem("token", data.data.accessToken);
-      console.log(localStorage.getItem("token"));
-
       return data;
     } catch (error) {
       console.error("Login error details:", error.response?.data);
@@ -108,7 +106,6 @@ export const updateUser = createAsyncThunk(
       await thunkApi.dispatch(currentUser());
       return data;
     } catch (error) {
-      console.log(error);
       toast.error(error.response?.data?.message || "Failed to update user");
       return thunkApi.rejectWithValue(error.message);
     }

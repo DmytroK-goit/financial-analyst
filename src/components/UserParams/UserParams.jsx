@@ -3,11 +3,13 @@ import { selectUser } from "../../redux/UserAuth/selectors";
 import { updateUser } from "../../redux/UserAuth/operations";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { useState } from "react";
 import s from "./UserParams.module.css";
 
-export const UserParams = () => {
+export const UserParams = ({ onClose }) => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
+  const [avatarFile, setAvatarFile] = useState(null);
 
   const initialValues = {
     name: user.name || "",
@@ -23,18 +25,30 @@ export const UserParams = () => {
     monthlyIncome: Yup.number().min(0, "Must be a positive number"),
   });
 
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values, { resetForm }) => {
     const updatedValues = {};
-
     Object.keys(values).forEach((key) => {
       if (values[key] !== initialValues[key] && values[key] !== "") {
-        updatedValues[key] = String(values[key]);
+        updatedValues[key] = values[key];
       }
     });
 
-    if (Object.keys(updatedValues).length > 0) {
-      console.log(updatedValues);
-      dispatch(updateUser(updatedValues));
+    try {
+      if (avatarFile) {
+        const formData = new FormData();
+        formData.append("avatar", avatarFile);
+        await dispatch(updateUser(formData)).unwrap();
+      }
+
+      if (Object.keys(updatedValues).length > 0) {
+        await dispatch(updateUser(updatedValues)).unwrap();
+      }
+
+      resetForm();
+      setAvatarFile(null);
+      onClose();
+    } catch (error) {
+      console.error("Update error:", error);
     }
   };
 
@@ -77,6 +91,13 @@ export const UserParams = () => {
               name="monthlyIncome"
               component="div"
               className={s.error}
+            />
+
+            <label>Avatar</label>
+            <input
+              type="file"
+              onChange={(e) => setAvatarFile(e.target.files[0])}
+              accept="image/*"
             />
 
             <button type="submit" disabled={isSubmitting}>

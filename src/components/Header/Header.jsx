@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import s from "./Header.module.css";
 import {
   selectIsLoggedIn,
+  selectUser,
   selectUserName,
 } from "../../redux/UserAuth/selectors";
 import { logout } from "../../redux/UserAuth/operations";
@@ -14,6 +15,7 @@ import { UserParams } from "../UserParams/UserParams";
 export const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const userName = useSelector(selectUserName);
+  const userAvatar = useSelector(selectUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -30,14 +32,25 @@ export const Header = () => {
         <a href="/">
           <img className={s.logo} src={logo} alt="logo" />
         </a>
-        {isLoggedIn && <h2>{userName}</h2>}
         {isLoggedIn && (
-          <button onClick={() => setIsModalOpen(true)}>Params</button>
+          <div className={s.user_info}>
+            <img
+              className={s.avatar}
+              src={userAvatar.avatar}
+              alt="User Avatar"
+            />
+            <h2>{userName}</h2>
+          </div>
         )}
-        {isLoggedIn && <button onClick={handleLogout}>Exit</button>}
+        <div className={s.buttons}>
+          {isLoggedIn && (
+            <button onClick={() => setIsModalOpen(true)}>Params</button>
+          )}
+          {isLoggedIn && <button onClick={handleLogout}>Exit</button>}
+        </div>
 
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-          <UserParams />
+          <UserParams onClose={() => setIsModalOpen(false)} />
         </Modal>
       </div>
     </div>

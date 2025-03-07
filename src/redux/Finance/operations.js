@@ -17,6 +17,21 @@ export const addTransaction = createAsyncThunk(
     }
   }
 );
+export const delTransaction = createAsyncThunk(
+  "delTransaction",
+  async (_id, thunkApi) => {
+    const token = localStorage.getItem("token");
+    try {
+      const { data } = await finance.delete(`transaction/${_id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      toast.success("Transaction deleted");
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const getTransaction = createAsyncThunk(
   "getTransaction",
