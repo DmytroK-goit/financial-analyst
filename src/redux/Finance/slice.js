@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   addTransaction,
+  editTransaction,
   getTransaction,
   getTransactionYear,
 } from "./operations";
@@ -29,6 +30,26 @@ const transactionSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
+      .addCase(editTransaction.fulfilled, (state, action) => {
+        const updatedTransaction = action.payload;
+
+        if (updatedTransaction.type === "income") {
+          const index = state.itemsMonth.income.findIndex(
+            (item) => item._id === updatedTransaction._id
+          );
+          if (index !== -1) {
+            state.itemsMonth.income[index] = updatedTransaction;
+          }
+        } else if (updatedTransaction.type === "expenses") {
+          const index = state.itemsMonth.expenses.findIndex(
+            (item) => item._id === updatedTransaction._id
+          );
+          if (index !== -1) {
+            state.itemsMonth.expenses[index] = updatedTransaction;
+          }
+        }
+      })
+
       .addCase(getTransaction.pending, (state) => {
         state.isLoading = true;
         state.error = null;

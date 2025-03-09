@@ -32,6 +32,21 @@ export const delTransaction = createAsyncThunk(
     }
   }
 );
+export const editTransaction = createAsyncThunk(
+  "editTransaction",
+  async ({ _id, ...updatedData }, thunkApi) => {
+    const token = localStorage.getItem("token");
+    try {
+      const { data } = await finance.patch(`transaction/${_id}`, updatedData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      toast.success("Transaction edited");
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const getTransaction = createAsyncThunk(
   "getTransaction",
