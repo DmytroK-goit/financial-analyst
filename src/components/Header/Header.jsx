@@ -34,11 +34,19 @@ export const Header = () => {
         </a>
         {isLoggedIn && (
           <div className={s.user_info}>
-            <img
-              className={s.avatar}
-              src={userAvatar.avatar}
-              alt="User Avatar"
-            />
+            {userAvatar && userAvatar.avatar ? (
+              <img
+                className={s.avatar}
+                src={userAvatar.avatar}
+                alt="User Avatar"
+              />
+            ) : (
+              <img
+                className={s.avatar}
+                src="../../img/default.png"
+                alt="Default User Avatar"
+              />
+            )}
             <h2>{userName}</h2>
           </div>
         )}
