@@ -19,7 +19,7 @@ body {
 
 /* Центруємо контент */
 body {
-/*   display: flex; */
+  display: flex;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
