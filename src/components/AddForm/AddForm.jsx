@@ -10,6 +10,7 @@ import {
 } from "../../redux/Finance/operations";
 import { selectIsLoading } from "../../redux/Finance/selectors";
 import { selectMonth, selectYear } from "../../redux/YearMonthSlice";
+import LoaderComponent from "../LoadingSpinner/LoaderComponent";
 
 export const AddForm = () => {
   const dispatch = useDispatch();
@@ -53,6 +54,9 @@ export const AddForm = () => {
     await dispatch(getTransactionYear({ year }));
     resetForm();
   };
+  if (loading) {
+    return <LoaderComponent />;
+  }
 
   return (
     <Formik

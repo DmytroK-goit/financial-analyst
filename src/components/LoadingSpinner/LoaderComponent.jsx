@@ -1,16 +1,8 @@
-import { DNA } from "react-loader-spinner";
+import { ClipLoader } from "react-spinners";
 import css from "./LoaderComponent.module.css";
-
 const LoaderComponent = () => (
   <div className={css.loaderContainer}>
-    <DNA
-      visible={true}
-      height="280"
-      width="280"
-      ariaLabel="dna-loading"
-      wrapperStyle={{}}
-      wrapperClass="dna-wrapper"
-    />
+    <ClipLoader size={80} color="#36d7b7" />
   </div>
 );
 
