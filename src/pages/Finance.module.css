@@ -9,8 +9,9 @@
   min-height: 100vh;
 }
 
-.container h2 {
+.hero_finance {
   text-align: center;
+  font-size: 48px;
 }
 .forms {
   display: flex;

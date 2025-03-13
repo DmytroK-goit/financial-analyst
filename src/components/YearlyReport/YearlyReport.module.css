@@ -6,9 +6,10 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* max-height: 800px; */
 }
-
+.hero_year {
+  padding-top: 20px;
+}
 .summary p {
   font-size: 18px;
   margin: 5px 0;

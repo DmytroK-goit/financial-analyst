@@ -32,7 +32,9 @@ export const YearlyReport = () => {
   return (
     <div className={s.report}>
       <div>
-        <h2>Фінансовий звіт за {year || new Date().getFullYear()}</h2>
+        <h2 className={s.hero_year}>
+          Фінансовий звіт за {year || new Date().getFullYear()}
+        </h2>
         <div className={s.summary}>
           <p>
             💰 Загальний дохід: <strong>{yearly.totalIncome} грн</strong>

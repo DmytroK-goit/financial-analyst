@@ -14,7 +14,6 @@ import { EditTransactionModal } from "../EditTransactionModal/EditTransactionMod
 export const MonthTransactions = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
-
   const itemsMonth = useSelector(selectMonthTransactions);
   const month = useSelector(selectMonth);
   const year = useSelector(selectYear);
@@ -65,7 +64,7 @@ export const MonthTransactions = () => {
                     <div>
                       <p className={s.amount}>+{item.amount} грн</p>
                       <p className={s.category}>{item.category}</p>
-                      <p className={s.category}>{item.description}</p>
+                      {/* <p className={s.category}>{item.description}</p> */}
                       <p className={s.category}>
                         {new Date(item.date).toLocaleDateString("uk-UA", {
                           year: "numeric",
@@ -108,7 +107,7 @@ export const MonthTransactions = () => {
                     <div>
                       <p className={s.amount}>+{item.amount} грн</p>
                       <p className={s.category}>{item.category}</p>
-                      <p className={s.category}>{item.description}</p>
+                      {/* <p className={s.category}>{item.description}</p> */}
                       <p className={s.category}>
                         {new Date(item.date).toLocaleDateString("uk-UA", {
                           year: "numeric",

@@ -11,7 +11,7 @@ export const Finance = () => {
   return (
     <div className={s.container}>
       <ShinyText>
-        <h2>{name} your Finance Page</h2>
+        <h2 className={s.hero_finance}>{name} your Finance Page</h2>
       </ShinyText>
 
       <div className={s.forms}>
