@@ -1,7 +1,17 @@
 import { useSelector } from "react-redux";
 import { selectYearTransactions } from "../../redux/Finance/selectors";
-import s from "./YearlyReport.module.css";
 import { selectYear } from "../../redux/YearMonthSlice";
+import s from "./YearlyReport.module.css";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 export const YearlyReport = () => {
   const yearData = useSelector(selectYearTransactions);
@@ -13,43 +23,79 @@ export const YearlyReport = () => {
 
   const { yearly, monthly } = yearData;
 
+  const chartData = monthly.map(({ month, income, expense }) => ({
+    name: new Date(0, month - 1).toLocaleString("uk", { month: "long" }),
+    income,
+    expense,
+  }));
+
   return (
     <div className={s.report}>
-      <h2>Фінансовий звіт за {year || new Date().getFullYear()}</h2>
-      <div className={s.summary}>
-        <p>
-          💰 Загальний дохід: <strong>{yearly.totalIncome} грн</strong>
-        </p>
-        <p>
-          💸 Загальні витрати: <strong>{yearly.totalExpense} грн</strong>
-        </p>
-        <p>
-          📈 Чистий дохід: <strong>{yearly.netTotal} грн</strong>
-        </p>
-      </div>
+      <div>
+        <h2>Фінансовий звіт за {year || new Date().getFullYear()}</h2>
+        <div className={s.summary}>
+          <p>
+            💰 Загальний дохід: <strong>{yearly.totalIncome} грн</strong>
+          </p>
+          <p>
+            💸 Загальні витрати: <strong>{yearly.totalExpense} грн</strong>
+          </p>
+          <p>
+            📈 Чистий дохід: <strong>{yearly.netTotal} грн</strong>
+          </p>
+        </div>
 
-      <table className={s.table}>
-        <thead>
-          <tr>
-            <th>Місяць</th>
-            <th>Дохід</th>
-            <th>Витрати</th>
-            <th>Чистий дохід</th>
-          </tr>
-        </thead>
-        <tbody>
-          {monthly?.map(({ month, income, expense, netTotal }) => (
-            <tr key={month}>
-              <td>
-                {new Date(0, month - 1).toLocaleString("uk", { month: "long" })}
-              </td>
-              <td>{income} грн</td>
-              <td>{expense} грн</td>
-              <td>{netTotal} грн</td>
+        <table className={s.table}>
+          <thead>
+            <tr>
+              <th>Категорія</th>
+              {monthly.map(({ month }) => (
+                <th key={month}>
+                  {new Date(0, month - 1).toLocaleString("uk", {
+                    month: "long",
+                  })}
+                </th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Дохід</td>
+              {monthly.map(({ month, income }) => (
+                <td key={month}>{income} грн</td>
+              ))}
+            </tr>
+            <tr>
+              <td>Витрати</td>
+              {monthly.map(({ month, expense }) => (
+                <td key={month}>{expense} грн</td>
+              ))}
+            </tr>
+            <tr>
+              <td>Чистий дохід</td>
+              {monthly.map(({ month, netTotal }) => (
+                <td key={month}>{netTotal} грн</td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart
+            data={chartData}
+            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+          >
+            <CartesianGrid strokeDasharray="2 2" />
+            <XAxis dataKey="name" tick={{ angle: -15, textAnchor: "end" }} />
+            <YAxis />
+            <Tooltip />
+            <Legend margin={{ top: 20 }} />
+            <Bar dataKey="income" fill="#82ca9d" name="Дохід" />
+            <Bar dataKey="expense" fill="#8884d8" name="Витрати" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };

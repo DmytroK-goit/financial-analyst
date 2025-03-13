@@ -21,8 +21,8 @@ export const Finance = () => {
         </div>
 
         <YearlyReport />
-        <MonthTransactions />
       </div>
+      <MonthTransactions />
     </div>
   );
 };

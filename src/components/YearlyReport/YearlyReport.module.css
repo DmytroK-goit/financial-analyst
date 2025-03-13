@@ -3,8 +3,10 @@
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 14px 18px rgba(61, 183, 204, 0.5);
-  display: block;
-  max-height: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* max-height: 800px; */
 }
 
 .summary p {
