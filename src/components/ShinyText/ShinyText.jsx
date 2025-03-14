@@ -1,4 +1,4 @@
-import "./ShinyText.module.css";
+import s from "./ShinyText.module.css";
 
 const ShinyText = ({
   children,
@@ -6,12 +6,10 @@ const ShinyText = ({
   speed = 5,
   className = "",
 }) => {
-  const animationDuration = `${speed}s`;
-
   return (
     <div
-      className={`shiny-text ${disabled ? "disabled" : ""} ${className}`}
-      style={{ animationDuration }}
+      className={`${s.shinyText} ${disabled ? s.disabled : ""} ${className}`}
+      style={{ animationDuration: `${speed}s` }}
     >
       {children}
     </div>

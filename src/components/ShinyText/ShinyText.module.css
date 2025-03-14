@@ -1,29 +1,39 @@
-.shiny-text {
-  color: #dbdadaa4;
-  font-size: 30px;
-  font-weight: 700;
+.shinyText {
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: transparent;
   background: linear-gradient(
     120deg,
-    rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0) 60%
+    rgba(247, 242, 181, 0.8) 20%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(35, 39, 42, 0.9) 80%
   );
-  background-size: 200% 100%;
+  background-size: 250% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   display: inline-block;
-  animation: shine 5s linear infinite;
+  animation: shine 5s ease-in-out infinite;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
 }
 
 @keyframes shine {
   0% {
-    background-position: 100%;
+    background-position: 200% center;
+  }
+  50% {
+    background-position: 100% center;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6);
   }
   100% {
-    background-position: -100%;
+    background-position: 0% center;
   }
 }
 
-.shiny-text.disabled {
+.shinyText.disabled {
   animation: none;
+  background: none;
+  color: #fff;
 }
