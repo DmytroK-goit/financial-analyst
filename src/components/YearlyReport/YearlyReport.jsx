@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectYearTransactions } from "../../redux/Finance/selectors";
 import { selectYear } from "../../redux/YearMonthSlice";
-import s from "./YearlyReport.module.css";
+import s from "./YearlyReport.module.scss";
 import {
   BarChart,
   Bar,
@@ -83,7 +83,11 @@ export const YearlyReport = () => {
         </table>
       </div>
       <div>
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer
+          width="100%"
+          height={300}
+          margin={{ right: 10, left: 10 }}
+        >
           <BarChart
             data={chartData}
             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}

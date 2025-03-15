@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import s from "./Header.module.css";
+import s from "./Header.module.scss";
 import {
   selectIsLoggedIn,
   selectUser,

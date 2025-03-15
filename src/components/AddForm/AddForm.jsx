@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 
-import s from "./AddForm.module.css";
+import s from "./AddForm.module.scss";
 import {
   addTransaction,
   getTransaction,

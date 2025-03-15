@@ -6,11 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/UserAuth/operations";
 import { selectIsLoading, selectUserCount } from "../redux/UserAuth/selectors";
-import css from "./SignInPage.module.css";
+import css from "./SignInPage.module.scss";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoaderComponent from "../components/LoadingSpinner/LoaderComponent";
-// import LoaderComponent from "../components/LoadingSpinner/LoaderComponent.jsx";
 
 const schema = yup.object().shape({
   email: yup.string().email("Invalid email").required("Email is required"),

@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { AddForm } from "../components/AddForm/AddForm";
 import { YearMonthForm } from "../components/YearMonthForm/YearMonthForm";
 import { selectUserName } from "../redux/UserAuth/selectors";
-import s from "./Finance.module.css";
+import s from "./Finance.module.scss";
 import { MonthTransactions } from "../components/MonthTransactions/MonthTransactions";
 import { YearlyReport } from "../components/YearlyReport/YearlyReport";
 import ShinyText from "../components/ShinyText/ShinyText";

@@ -10,7 +10,7 @@ import {
   getTransaction,
   getTransactionYear,
 } from "../../redux/Finance/operations";
-import s from "./YearMonthForm.module.css";
+import s from "./YearMonthForm.module.scss";
 
 export const YearMonthForm = () => {
   const dispatch = useDispatch();

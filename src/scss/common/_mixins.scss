@@ -1,0 +1,20 @@
+@use "./breakpoints" as *; // Імпортуємо всі змінні з breakpoints
+
+@mixin media($_screen) {
+  @if $_screen == mobile {
+    @media screen and (min-width: $mobile) {
+      // Використовуємо змінну $mobile
+      @content;
+    }
+  } @else if $_screen == tablet {
+    @media screen and (min-width: $tablet) {
+      // Використовуємо змінну $tablet
+      @content;
+    }
+  } @else if $_screen == desktop {
+    @media screen and (min-width: $desktop) {
+      // Використовуємо змінну $desktop
+      @content;
+    }
+  }
+}

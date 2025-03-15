@@ -1,14 +1,19 @@
+@use "../../scss/common/mixins" as *;
 .form {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 350px;
-  padding: 20px;
+  max-width: 300px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background: #f9f9f9;
-  height: 500px;
   box-shadow: 0 14px 18px rgba(61, 183, 204, 0.5);
+  height: 500px;
+  @include media(desktop) {
+    max-width: 350px;
+    padding: 20px;
+  }
 }
 
 label {
@@ -38,7 +43,10 @@ button {
   border-radius: 22px;
   cursor: pointer;
   transition: background 0.3s;
-  width: 300px;
+  width: 150px;
+  @include media(desktop) {
+    width: 240px;
+  }
 }
 
 button:hover {

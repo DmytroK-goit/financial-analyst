@@ -1,0 +1,47 @@
+@use "../scss/common/mixins" as *;
+.container {
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  background: linear-gradient(135deg, #f7f2b5, #23272a);
+  min-height: 100vh;
+  @include media(desktop) {
+    flex: 1;
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+  }
+}
+
+.hero_finance {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 18px;
+  @include media(desktop) {
+    font-size: 48px;
+  }
+}
+.forms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  justify-content: center;
+  @include media(desktop) {
+    gap: 30px;
+    flex-direction: row;
+  }
+}
+.forms_add_date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 280px;
+  @include media(desktop) {
+    gap: 30px;
+    justify-content: center;
+  }
+}
