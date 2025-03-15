@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectMonthTransactions } from "../../redux/Finance/selectors";
-import s from "./MonthTransactions.module.css";
+import s from "./MonthTransactions.module.scss";
 import { FaArrowUp, FaArrowDown, FaTrash, FaEdit } from "react-icons/fa";
 import { selectMonth, selectYear } from "../../redux/YearMonthSlice";
 import {

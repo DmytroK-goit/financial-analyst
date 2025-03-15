@@ -52,9 +52,18 @@ export const Header = () => {
         )}
         <div className={s.buttons}>
           {isLoggedIn && (
-            <button onClick={() => setIsModalOpen(true)}>Params</button>
+            <button
+              className={s.buttons_item}
+              onClick={() => setIsModalOpen(true)}
+            >
+              Params
+            </button>
           )}
-          {isLoggedIn && <button onClick={handleLogout}>Exit</button>}
+          {isLoggedIn && (
+            <button className={s.buttons_item} onClick={handleLogout}>
+              Exit
+            </button>
+          )}
         </div>
 
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
