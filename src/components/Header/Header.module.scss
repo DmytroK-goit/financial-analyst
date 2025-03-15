@@ -3,6 +3,7 @@
   position: fixed;
   top: 0;
   left: 50%;
+  min-width: 320px;
   height: 100px;
   margin: 0 auto;
   display: flex;
@@ -45,7 +46,7 @@
 }
 
 .header button {
-  padding: 5px 10px;
+  // padding: 5px 5px;
   width: 80px;
   height: 50px;
   font-size: 16px;
@@ -104,12 +105,17 @@
 }
 .user_info {
   display: flex;
-  gap: 6px;
+  flex-direction: column;
+  gap: 5px;
   justify-content: center;
   align-items: center;
   @include media(desktop) {
     gap: 12px;
+    flex-direction: row;
   }
+}
+.user_info h2 {
+  margin: 0;
 }
 .cont a {
   display: flex;

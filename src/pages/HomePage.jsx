@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import s from "./HomePage.module.css";
+import s from "./HomePage.module.scss";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../redux/UserAuth/selectors";
 import ShinyText from "../components/ShinyText/ShinyText";

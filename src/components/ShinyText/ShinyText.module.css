@@ -1,13 +1,13 @@
 .shinyText {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw, 4.5rem);
   font-weight: bold;
   text-transform: uppercase;
   color: transparent;
   background: linear-gradient(
     120deg,
-    rgba(247, 242, 181, 0.8) 20%,
+    rgba(247, 242, 181, 0.9) 20%,
     rgba(255, 255, 255, 1) 50%,
-    rgba(35, 39, 42, 0.9) 80%
+    rgba(61, 115, 156, 1) 80%
   );
   background-size: 250% 100%;
   -webkit-background-clip: text;

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUserCount } from "../redux/UserAuth/selectors.js";
 import { registerUser } from "../redux/UserAuth/operations";
-import css from "./SignUpPage.module.css";
+import css from "./SignUpPage.module.scss";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

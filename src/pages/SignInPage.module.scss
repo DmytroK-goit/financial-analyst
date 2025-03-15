@@ -1,12 +1,17 @@
+@use "../scss/common/mixins" as *;
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  /* height: auto; */
   padding: 16px;
+  height: 100vh;
   min-width: 320px;
-  max-width: 375px;
+  max-width: 320px;
+  @include media(desktop) {
+    min-width: 320px;
+    max-width: 375px;
+  }
 }
 
 .sign-in-page {
@@ -250,50 +255,50 @@
 }
 /* ------------------Планшет------------------ */
 
-@media screen and (min-width: 768px) and (max-width: 1439px) {
-  .sign-in-page {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  .advantages-section {
-    display: block;
-  }
+// @media screen and (min-width: 768px) and (max-width: 1439px) {
+//   .sign-in-page {
+//     display: flex;
+//     flex-direction: column;
+//     width: 100%;
+//   }
+//   .advantages-section {
+//     display: block;
+//   }
 
-  .container {
-    min-width: 768px;
-    padding: 32px;
-  }
+//   .container {
+//     min-width: 768px;
+//     padding: 32px;
+//   }
 
-  .sign-in-page .logo {
-    top: 32px;
-    left: 32px;
-    font-size: 24px;
-  }
+//   .sign-in-page .logo {
+//     top: 32px;
+//     left: 32px;
+//     font-size: 24px;
+//   }
 
-  .form-wrapper {
-    width: 436px;
-    /* height: 506px; */
-    padding: 32px;
-    /* height: calc(100vh - 64px); */
-    /* min-height: 736px; */
-  }
+//   .form-wrapper {
+//     width: 436px;
+//     /* height: 506px; */
+//     padding: 32px;
+//     /* height: calc(100vh - 64px); */
+//     /* min-height: 736px; */
+//   }
 
-  .input_main_wrapper {
-    width: 100%;
-  }
+//   .input_main_wrapper {
+//     width: 100%;
+//   }
 
-  .sign-in-page .form-title {
-    font-size: 36px;
-    line-height: 1.05556;
-  }
+//   .sign-in-page .form-title {
+//     font-size: 36px;
+//     line-height: 1.05556;
+//   }
 
-  .input__wrapper label {
-    margin-top: 20px;
-  }
-}
+//   .input__wrapper label {
+//     margin-top: 20px;
+//   }
+// }
 
-/* ------------------------Десктоп----------------- */
+// /* ------------------------Десктоп----------------- */
 
 @media screen and (min-width: 1440px) {
   .advantages-section {
