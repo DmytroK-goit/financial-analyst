@@ -1,8 +1,23 @@
-# React + Vite
+# Financial Analyst
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Financial Analyst](https://img.shields.io/badge/deployed-vercel-blue)](https://financial-analyst.vercel.app/)
 
-Currently, two official plugins are available:
+## Опис
+**Financial Analyst** – це веб-додаток для аналізу доходів та витрат користувача. Він допомагає відстежувати фінансові потоки та отримувати корисну аналітику.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Функціонал
+- Реєстрація та авторизація користувачів
+- Додавання та редагування фінансових операцій
+- Категоризація доходів та витрат
+- Візуалізація даних у вигляді графіків
+- Генерація фінансових звітів
+
+## Технології
+- **Front-end**: React, HTML, CSS, JavaScript, SCSS
+- **Back-end**: Node.js, Express, MongoDB
+- **Деплой**: Vercel (Front-end), Render(Back-end)
+
+## Запуск проєкту
+
+## Контакти
+Якщо у вас є питання або пропозиції, зв'яжіться зі мною через GitHub або email: **k0vbasyuk.dim0n@gmail.com**.
