@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import s from "./Modal.module.css";
+import s from "./Modal.module.scss";
 
 export const Modal = ({ isOpen, onClose, children }) => {
   useEffect(() => {

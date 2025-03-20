@@ -6,7 +6,7 @@
   justify-content: center;
   flex-direction: column;
   padding: 20px;
-  background: linear-gradient(135deg, #f7f2b5, #23272a);
+  // background: linear-gradient(135deg, #f7f2b5, #23272a);
   min-height: 100vh;
   @include media(desktop) {
     flex: 1;
@@ -39,9 +39,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 280px;
+  // max-width: 280px;
   @include media(desktop) {
     gap: 30px;
     justify-content: center;
+    max-width: 280px;
   }
 }

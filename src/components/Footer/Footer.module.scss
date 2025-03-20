@@ -61,12 +61,14 @@
 .address {
   display: flex;
   flex-direction: column;
+
   @include media(desktop) {
     align-items: start;
   }
 }
 
-.footer_cont h2 {
+.footer_cont h2,
+p {
   margin: 0;
   font-size: 12px;
   @include media(desktop) {

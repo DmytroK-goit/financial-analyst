@@ -8,13 +8,29 @@
   padding: 20px;
   text-align: center;
   color: white;
-  background-image: url(../img/background.jpg);
-  background-position: center;
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  /* background: linear-gradient(135deg, #c689f1, #302141); */
+  animation: bgChange 20s infinite linear;
   @include media(desktop) {
     width: 1440px;
+  }
+}
+@keyframes bgChange {
+  0% {
+    background-image: url("../img/1.jpeg");
+  }
+  25% {
+    background-image: url("../img/2.jpeg");
+  }
+  50% {
+    background-image: url("../img/3.jpeg");
+  }
+  75% {
+    background-image: url("../img/4.jpeg");
+  }
+  100% {
+    background-image: url("../img/1.jpeg");
   }
 }
 

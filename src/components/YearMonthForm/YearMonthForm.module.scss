@@ -1,16 +1,17 @@
 @use "../../scss/common/mixins" as *;
 .form {
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   padding: 12px;
   gap: 10px;
-  width: 250px;
+  // width: 250px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
   box-shadow: 0 14px 18px rgba(61, 183, 204, 0.5);
   @include media(desktop) {
     width: 250px;
+    margin-top: 40px;
   }
 }
