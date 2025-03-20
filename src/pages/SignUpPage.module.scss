@@ -2,12 +2,15 @@
 .container {
   margin: 0 auto;
   padding: 16px;
+  height: 100%;
 }
 
 .sign-up-page {
   box-sizing: border-box;
   border-radius: 30px;
   height: 100vh;
+}
+@include media(desktop) {
 }
 .sign-up-form {
   position: relative;

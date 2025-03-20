@@ -4,19 +4,20 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding: 16px;
+  // padding: 16px;
   height: 100vh;
   min-width: 320px;
-  max-width: 320px;
+  // max-width: 320px;
   @include media(desktop) {
-    min-width: 320px;
-    max-width: 375px;
+    // min-width: 320px;
+    // max-width: 375px;
   }
 }
 
 .sign-in-page {
   box-sizing: border-box;
   border-radius: 30px;
+  width: 320px;
 }
 .sign-in-form {
   position: relative;
