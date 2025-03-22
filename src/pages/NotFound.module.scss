@@ -1,0 +1,38 @@
+.cont {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("https://internetdevels.com/sites/default/files/public/blog_preview/404_page_cover.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home_button {
+  display: flex;
+  margin-top: 80px;
+  margin-left: 40px;
+  width: 60px;
+  height: 25px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.home_button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #2a5298, #1e3c72);
+}
+
+.home_button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
