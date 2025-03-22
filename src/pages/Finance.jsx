@@ -6,13 +6,21 @@ import s from "./Finance.module.scss";
 import { MonthTransactions } from "../components/MonthTransactions/MonthTransactions";
 import { YearlyReport } from "../components/YearlyReport/YearlyReport";
 import ShinyText from "../components/ShinyText/ShinyText";
+import { motion } from "framer-motion";
+
 export const Finance = () => {
   const name = useSelector(selectUserName);
   return (
     <div className={s.container}>
-      <ShinyText>
-        <h2 className={s.hero_finance}>{name} твоя сторінка з Фінансами</h2>
-      </ShinyText>
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 100 }}
+      >
+        <ShinyText>
+          <h2 className={s.hero_finance}>{name} твоя сторінка з Фінансами</h2>
+        </ShinyText>
+      </motion.div>
 
       <div className={s.forms}>
         <div className={s.forms_add_date}>

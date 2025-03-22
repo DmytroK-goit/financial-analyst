@@ -11,6 +11,7 @@ import { logout } from "../../redux/UserAuth/operations";
 import logo from "../../img/logo.png";
 import { Modal } from "../Modal";
 import { UserParams } from "../UserParams/UserParams";
+import { motion } from "framer-motion";
 
 export const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -52,17 +53,29 @@ export const Header = () => {
         )}
         <div className={s.buttons}>
           {isLoggedIn && (
-            <button
-              className={s.buttons_item}
-              onClick={() => setIsModalOpen(true)}
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              Params
-            </button>
+              <button
+                className={s.buttons_item}
+                onClick={() => setIsModalOpen(true)}
+              >
+                Params
+              </button>
+            </motion.div>
           )}
           {isLoggedIn && (
-            <button className={s.buttons_item} onClick={handleLogout}>
-              Exit
-            </button>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <button className={s.buttons_item} onClick={handleLogout}>
+                Exit
+              </button>
+            </motion.div>
           )}
         </div>
 

@@ -12,6 +12,7 @@ import {
 import { EditTransactionModal } from "../EditTransactionModal/EditTransactionModal";
 import ShinyText from "../ShinyText/ShinyText";
 import FadeContent from "../FadeContent/FadeContent";
+import { motion } from "framer-motion";
 
 export const MonthTransactions = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -65,43 +66,49 @@ export const MonthTransactions = () => {
           {income.length > 0 ? (
             <ul className={s.list}>
               {income.map((item) => (
-                <FadeContent
-                  blur={true}
-                  duration={1000}
-                  easing="ease-out"
-                  initialOpacity={0}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <li className={s.item}>
-                    <div className={s.headInfo}>
-                      <FaArrowUp className={s.incomeIcon} />
-                      <div>
-                        <p className={s.amount}>+{item.amount} грн</p>
-                        <p className={s.category}>{item.category}</p>
-                        <p className={s.category}>
-                          {new Date(item.date).toLocaleDateString("uk-UA", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          })}
-                        </p>
+                  <FadeContent
+                    blur={true}
+                    duration={1000}
+                    easing="ease-out"
+                    initialOpacity={0}
+                  >
+                    <li className={s.item}>
+                      <div className={s.headInfo}>
+                        <FaArrowUp className={s.incomeIcon} />
+                        <div>
+                          <p className={s.amount}>+{item.amount} грн</p>
+                          <p className={s.category}>{item.category}</p>
+                          <p className={s.category}>
+                            {new Date(item.date).toLocaleDateString("uk-UA", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            })}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <div className={s.buttons}>
-                      <button
-                        className={s.deleteButton}
-                        onClick={() => handleDelete(item._id)}
-                      >
-                        <FaTrash />
-                      </button>
-                      <button
-                        className={s.editButton}
-                        onClick={() => handleEdit(item)}
-                      >
-                        <FaEdit />
-                      </button>
-                    </div>
-                  </li>
-                </FadeContent>
+                      <div className={s.buttons}>
+                        <button
+                          className={s.deleteButton}
+                          onClick={() => handleDelete(item._id)}
+                        >
+                          <FaTrash />
+                        </button>
+                        <button
+                          className={s.editButton}
+                          onClick={() => handleEdit(item)}
+                        >
+                          <FaEdit />
+                        </button>
+                      </div>
+                    </li>
+                  </FadeContent>
+                </motion.div>
               ))}
             </ul>
           ) : (
@@ -114,43 +121,49 @@ export const MonthTransactions = () => {
           {expenses.length > 0 ? (
             <ul className={s.list}>
               {expenses.map((item) => (
-                <FadeContent
-                  blur={true}
-                  duration={1000}
-                  easing="ease-out"
-                  initialOpacity={0}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <li key={item._id} className={s.item}>
-                    <div className={s.headInfo}>
-                      <FaArrowDown className={s.expenseIcon} />
-                      <div>
-                        <p className={s.amount}>-{item.amount} грн</p>
-                        <p className={s.category}>{item.category}</p>
-                        <p className={s.category}>
-                          {new Date(item.date).toLocaleDateString("uk-UA", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          })}
-                        </p>
+                  <FadeContent
+                    blur={true}
+                    duration={1000}
+                    easing="ease-out"
+                    initialOpacity={0}
+                  >
+                    <li key={item._id} className={s.item}>
+                      <div className={s.headInfo}>
+                        <FaArrowDown className={s.expenseIcon} />
+                        <div>
+                          <p className={s.amount}>-{item.amount} грн</p>
+                          <p className={s.category}>{item.category}</p>
+                          <p className={s.category}>
+                            {new Date(item.date).toLocaleDateString("uk-UA", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            })}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <div className={s.buttons}>
-                      <button
-                        className={s.deleteButton}
-                        onClick={() => handleDelete(item._id)}
-                      >
-                        <FaTrash />
-                      </button>
-                      <button
-                        className={s.editButton}
-                        onClick={() => handleEdit(item)}
-                      >
-                        <FaEdit />
-                      </button>
-                    </div>
-                  </li>
-                </FadeContent>
+                      <div className={s.buttons}>
+                        <button
+                          className={s.deleteButton}
+                          onClick={() => handleDelete(item._id)}
+                        >
+                          <FaTrash />
+                        </button>
+                        <button
+                          className={s.editButton}
+                          onClick={() => handleEdit(item)}
+                        >
+                          <FaEdit />
+                        </button>
+                      </div>
+                    </li>
+                  </FadeContent>
+                </motion.div>
               ))}
             </ul>
           ) : (

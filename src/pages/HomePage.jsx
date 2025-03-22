@@ -17,12 +17,24 @@ const HomePage = () => {
       <div className={s.contButt}>
         {!isLoggedIn && (
           <>
-            <Link className={s.butt} to="/signup">
-              Signup
-            </Link>
-            <Link className={s.butt} to="/signin">
-              Signin
-            </Link>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Link className={s.butt} to="/signup">
+                Signup
+              </Link>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Link className={s.butt} to="/signin">
+                Signin
+              </Link>
+            </motion.div>
           </>
         )}
         {isLoggedIn && (
