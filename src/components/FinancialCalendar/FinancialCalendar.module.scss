@@ -1,0 +1,150 @@
+.wrapper {
+  padding: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.react-calendar {
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  background: transparent;
+}
+
+.react-calendar__tile {
+  height: 60px;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.react-calendar__tile--active {
+  background-color: #d1fae5 !important;
+  color: #065f46 !important;
+}
+
+.react-calendar__tile--now {
+  background-color: #e0f2fe !important;
+  color: #1d4ed8;
+}
+
+.react-calendar__tile:hover {
+  background-color: #f3f4f6;
+}
+
+.eventNote {
+  font-size: 0.7rem;
+  color: #047857;
+  margin-top: 4px;
+  display: block;
+  text-align: center;
+}
+
+.details {
+  margin-top: 1rem;
+  text-align: center;
+
+  p {
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+
+    strong {
+      color: #2f855a;
+    }
+  }
+
+  .editButton {
+    padding: 0.5rem 1rem;
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #2b6cb0;
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.textarea {
+  width: 100%;
+  height: 100px;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.saveButton,
+.cancelButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.saveButton {
+  background-color: #38a169;
+  color: white;
+}
+
+.saveButton:hover {
+  background-color: #2f855a;
+}
+
+.cancelButton {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.cancelButton:hover {
+  background-color: #c53030;
+}
+.wrapper button {
+  color: #2d3748;
+}

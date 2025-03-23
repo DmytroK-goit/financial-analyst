@@ -7,6 +7,7 @@ import { MonthTransactions } from "../components/MonthTransactions/MonthTransact
 import { YearlyReport } from "../components/YearlyReport/YearlyReport";
 import ShinyText from "../components/ShinyText/ShinyText";
 import { motion } from "framer-motion";
+import { FinancialCalendar } from "../components/FinancialCalendar/FinancialCalendar";
 
 export const Finance = () => {
   const name = useSelector(selectUserName);
@@ -31,6 +32,7 @@ export const Finance = () => {
         <YearlyReport />
       </div>
       <MonthTransactions />
+      <FinancialCalendar />
     </div>
   );
 };

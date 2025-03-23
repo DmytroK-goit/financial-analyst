@@ -1,7 +1,8 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectYearTransactions } from "../../redux/Finance/selectors";
 import { selectYear } from "../../redux/YearMonthSlice";
 import s from "./YearlyReport.module.scss";
+
 import {
   BarChart,
   Bar,
@@ -12,11 +13,9 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-
 export const YearlyReport = () => {
   const yearData = useSelector(selectYearTransactions);
   const year = useSelector(selectYear);
-
   if (!yearData || !yearData.yearly) {
     return <p>Завантаження...</p>;
   }
