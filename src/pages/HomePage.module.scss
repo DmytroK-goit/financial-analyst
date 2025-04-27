@@ -13,7 +13,9 @@
   background-repeat: no-repeat;
   animation: bgChange 20s infinite linear;
   @include media(desktop) {
-    width: 1440px;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
   }
 }
 @keyframes bgChange {
@@ -49,7 +51,7 @@ h1 {
   text-shadow: 2px 2px 15px rgba(49, 45, 45, 0.5);
   @include media(desktop) {
     font-size: 68px;
-    margin-top: 30%;
+    margin-top: 20%;
   }
 }
 

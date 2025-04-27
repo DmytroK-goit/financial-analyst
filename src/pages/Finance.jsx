@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { useState } from "react";
 import { AddForm } from "../components/AddForm/AddForm";
 import { YearMonthForm } from "../components/YearMonthForm/YearMonthForm";
 import { selectUserName } from "../redux/UserAuth/selectors";
@@ -11,6 +12,12 @@ import { FinancialCalendar } from "../components/FinancialCalendar/FinancialCale
 
 export const Finance = () => {
   const name = useSelector(selectUserName);
+  const [showMonthTransactions, setShowMonthTransactions] = useState(false);
+
+  const toggleMonthTransactions = () => {
+    setShowMonthTransactions((prev) => !prev);
+  };
+
   return (
     <div className={s.container}>
       <motion.div
@@ -31,7 +38,23 @@ export const Finance = () => {
 
         <YearlyReport />
       </div>
-      <MonthTransactions />
+
+      {/* Кнопка для відкриття/закриття */}
+      <motion.button
+        className={s.toggleButton}
+        onClick={toggleMonthTransactions}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        {showMonthTransactions
+          ? "Сховати Місячні Транзакції"
+          : "Показати Місячні Транзакції"}
+      </motion.button>
+
+      {/* Показуємо тільки якщо треба */}
+      {showMonthTransactions && <MonthTransactions />}
+
       {/* <FinancialCalendar /> */}
     </div>
   );

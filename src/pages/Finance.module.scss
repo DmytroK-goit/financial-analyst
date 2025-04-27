@@ -9,6 +9,7 @@
   // background: linear-gradient(135deg, #f7f2b5, #23272a);
   min-height: 100vh;
   @include media(desktop) {
+    margin-bottom: 60px;
     flex: 1;
     width: 100%;
     padding: 20px;
@@ -45,5 +46,21 @@
     gap: 30px;
     justify-content: center;
     max-width: 280px;
+  }
+}
+.toggleButton {
+  margin: 20px auto;
+
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #45a049;
   }
 }
