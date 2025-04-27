@@ -87,5 +87,9 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   gap: 50px;
+  @include media(desktop) {
+    flex-direction: row;
+  }
 }
