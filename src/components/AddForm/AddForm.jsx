@@ -45,7 +45,7 @@ export const AddForm = () => {
       .required("Required"),
     amount: Yup.number().positive("Must be positive").required("Required"),
     date: Yup.string().required("Required"),
-    description: Yup.string(),
+    description: Yup.string().required("Required"),
   });
 
   const handleSubmit = async (values, { resetForm }) => {

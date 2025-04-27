@@ -37,7 +37,7 @@ export const FinancialCalendar = () => {
         tileContent={({ date }) => {
           const key = formatDate(date);
           return financialEvents[key] ? (
-            <span className={s.eventNote}>{financialEvents[key]}</span>
+            <span className={s.eventNote}></span>
           ) : null;
         }}
       />
