@@ -50,8 +50,9 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   // text-shadow: 2px 2px 15px rgba(160, 240, 160, 0.5);
-  width: 320px;
+  width: 350px;
   @include media(desktop) {
+    width: 100vw;
     font-size: 68px;
     margin-top: 20%;
   }

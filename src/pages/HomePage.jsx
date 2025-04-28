@@ -23,7 +23,7 @@ const HomePage = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Link className={s.butt} to="/signup">
-                Рейстрація
+                Реєстрація
               </Link>
             </motion.div>
             <motion.div
