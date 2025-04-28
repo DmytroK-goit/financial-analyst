@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <div className={s.container}>
       <ShinyText disabled={false} speed={5} className="custom-class">
-        <h1>My Financial Control</h1>
+        <h1>Мій фінансовий додаток</h1>
       </ShinyText>
 
       <div className={s.contButt}>
@@ -23,7 +23,7 @@ const HomePage = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Link className={s.butt} to="/signup">
-                Signup
+                Рейстрація
               </Link>
             </motion.div>
             <motion.div
@@ -32,7 +32,7 @@ const HomePage = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Link className={s.butt} to="/signin">
-                Signin
+                Вхід
               </Link>
             </motion.div>
           </>
@@ -44,7 +44,7 @@ const HomePage = () => {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <Link className={s.butt} to="/transaction">
-              Transaction
+              Транзакції
             </Link>
           </motion.div>
         )}

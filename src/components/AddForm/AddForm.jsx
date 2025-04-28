@@ -66,51 +66,51 @@ export const AddForm = () => {
     >
       <Form className={s.form}>
         <label>
-          Type:
+          Тип:
           <Field as="select" name="type">
-            <option value="income">Income</option>
-            <option value="expense">Expense</option>
+            <option value="income">Дохід</option>
+            <option value="expense">Витрата</option>
           </Field>
         </label>
         <ErrorMessage name="type" component="div" className={s.error} />
 
         <label>
-          Category:
+          Категорія:
           <Field as="select" name="category">
-            <option value="Auto">Auto</option>
-            <option value="Food">Food</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Home expenses">Home expenses</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Health">Health</option>
-            <option value="Transport">Transport</option>
-            <option value="Education">Education</option>
-            <option value="Other">Other</option>
-            <option value="Salary">Salary</option>
-            <option value="Credit">Credit</option>
+            <option value="Auto">Авто</option>
+            <option value="Food">Їжа</option>
+            <option value="Clothing">Одяг</option>
+            <option value="Home expenses">Домашні витрати</option>
+            <option value="Entertainment">Розваги</option>
+            <option value="Health">Здоров'я</option>
+            <option value="Transport">Транспорт</option>
+            <option value="Education">Навчання</option>
+            <option value="Other">Інше</option>
+            <option value="Salary">Заробітня плата</option>
+            <option value="Credit">Кредит</option>
           </Field>
         </label>
         <ErrorMessage name="category" component="div" className={s.error} />
 
         <label>
-          Amount:
+          Сума:
           <Field type="number" name="amount" />
         </label>
         <ErrorMessage name="amount" component="div" className={s.error} />
 
         <label>
-          Date:
+          Дата:
           <Field type="datetime-local" name="date" />
         </label>
         <ErrorMessage name="date" component="div" className={s.error} />
 
         <label className={s.description}>
-          Description:
+          Опис:
           <Field type="text" name="description" />
         </label>
         <ErrorMessage name="description" component="div" className={s.error} />
 
-        <button type="submit">Add Transaction</button>
+        <button type="submit">Додати транзакцію</button>
       </Form>
     </Formik>
   );
