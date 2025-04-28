@@ -48,7 +48,7 @@ export const Header = () => {
                 alt="Default User Avatar"
               />
             )}
-            <h2>{userName}</h2>
+            <h2 className={s.heder_title}>{userName}</h2>
           </div>
         )}
         <div className={s.buttons}>
