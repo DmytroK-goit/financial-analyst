@@ -15,10 +15,14 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-  background: #fff;
+  // background: #fff;
   border-radius: 8px;
   box-shadow: 0 14px 18px rgba(61, 183, 204, 0.5);
   overflow-x: auto;
+  background-image: url("../../img/bg_year.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   @include media(desktop) {
     width: 1400px;
     margin-top: 50px;

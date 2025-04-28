@@ -62,7 +62,7 @@ export const Header = () => {
                 className={s.buttons_item}
                 onClick={() => setIsModalOpen(true)}
               >
-                Params
+                Опції
               </button>
             </motion.div>
           )}
@@ -73,7 +73,7 @@ export const Header = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <button className={s.buttons_item} onClick={handleLogout}>
-                Exit
+                Вихід
               </button>
             </motion.div>
           )}

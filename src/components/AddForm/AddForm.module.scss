@@ -7,9 +7,13 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background: #f9f9f9;
+  // background: #f9f9f9;
   box-shadow: 0 14px 18px rgba(61, 183, 204, 0.5);
   height: 500px;
+  background-image: url("../../img/bg_addForm.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   @include media(desktop) {
     max-width: 350px;
     padding: 20px;
