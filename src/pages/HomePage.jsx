@@ -10,7 +10,7 @@ const HomePage = () => {
 
   return (
     <div className={s.container}>
-      <ShinyText disabled={false} speed={3} className="custom-class">
+      <ShinyText disabled={false} speed={5} className="custom-class">
         <h1>My Financial Control</h1>
       </ShinyText>
 
