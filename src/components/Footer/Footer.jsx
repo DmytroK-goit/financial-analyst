@@ -3,12 +3,13 @@ import { SiGmail } from "react-icons/si";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+
 export const Footer = () => {
   return (
     <footer className={s.footer}>
       <div className={s.footer_cont}>
-        <h2>Financial App</h2>
-        <p>© 2025 Finance App</p>
+        <h2>Фінансовий додаток</h2>
+        <p>© 2025</p>
         <address className={s.address}>
           <ul className={s.address_list}>
             {/* <li>

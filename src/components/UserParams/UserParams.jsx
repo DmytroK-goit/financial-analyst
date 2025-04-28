@@ -54,7 +54,7 @@ export const UserParams = ({ onClose }) => {
 
   return (
     <div className={s.form}>
-      <h2>User Settings</h2>
+      <h2>Налаштування</h2>
       <div className={s.userInfo}>
         <img className={s.avatar} src={user.avatar} alt="User Avatar" />
       </div>
@@ -65,7 +65,7 @@ export const UserParams = ({ onClose }) => {
       >
         {({ isSubmitting }) => (
           <Form className={s.formContainer}>
-            <label>Name</label>
+            <label>Ім'я</label>
             <Field type="text" name="name" placeholder="Enter new name" />
             <ErrorMessage name="name" component="div" className={s.error} />
 
@@ -73,15 +73,15 @@ export const UserParams = ({ onClose }) => {
             <Field type="email" name="email" placeholder="Enter new email" />
             <ErrorMessage name="email" component="div" className={s.error} />
 
-            <label>Gender</label>
+            <label>Стать</label>
             <Field as="select" name="gender">
-              <option value="">Select...</option>
-              <option value="man">Man</option>
-              <option value="woman">Woman</option>
+              <option value="">Вибір...</option>
+              <option value="man">Чоловік</option>
+              <option value="woman">Жінка</option>
             </Field>
             <ErrorMessage name="gender" component="div" className={s.error} />
 
-            <label>Monthly Income</label>
+            <label>Дохід за місяць</label>
             <Field
               type="number"
               name="monthlyIncome"
@@ -93,7 +93,7 @@ export const UserParams = ({ onClose }) => {
               className={s.error}
             />
 
-            <label>Avatar</label>
+            <label>Аватар</label>
             <input
               type="file"
               onChange={(e) => setAvatarFile(e.target.files[0])}
@@ -101,7 +101,7 @@ export const UserParams = ({ onClose }) => {
             />
 
             <button type="submit" disabled={isSubmitting}>
-              Save
+              Зберегти
             </button>
           </Form>
         )}
