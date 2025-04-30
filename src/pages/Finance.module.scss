@@ -1,6 +1,6 @@
 @use "../scss/common/mixins" as *;
 .container {
-  width: 320px;
+  min-width: 320px;
   display: flex;
   align-items: center;
   justify-content: center;

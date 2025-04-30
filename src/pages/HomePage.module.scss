@@ -39,6 +39,7 @@
 
 /* Заголовок */
 h1 {
+  display: block;
   margin-top: 40%;
   font-size: 28px;
   font-weight: 900;
@@ -47,7 +48,8 @@ h1 {
   text-align: center;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
+  width: 380px;
+  height: 40px;
   @include media(desktop) {
     width: 100vw;
     font-size: 68px;
