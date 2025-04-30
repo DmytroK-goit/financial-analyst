@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../redux/UserAuth/selectors";
 import ShinyText from "../components/ShinyText/ShinyText";
 import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
 
 const HomePage = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -11,7 +12,17 @@ const HomePage = () => {
   return (
     <div className={s.container}>
       <ShinyText disabled={false} speed={5} className="custom-class">
-        <h1>Мій фінансовий додаток</h1>
+        <h1>
+          <Typewriter
+            words={["Мій фінансовий додаток"]}
+            loop={false}
+            cursor
+            cursorStyle="|"
+            typeSpeed={200}
+            deleteSpeed={50}
+            delaySpeed={1500}
+          />
+        </h1>
       </ShinyText>
 
       <div className={s.contButt}>

@@ -4,15 +4,15 @@
   flex-direction: column;
   margin: 0 auto;
   min-width: 320px;
-  max-width: 100vw;
-  min-height: 100vh;
+  // width: 100%;
+  height: 100vh;
   padding: 20px;
   text-align: center;
   color: white;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  animation: bgChange 20s infinite linear;
+  animation: bgChange 20s linear infinite;
   @include media(desktop) {
     width: 100vw;
     height: 100vh;
@@ -42,16 +42,12 @@ h1 {
   margin-top: 40%;
   font-size: 28px;
   font-weight: 900;
-  text-transform: uppercase;
   margin-bottom: 30px;
   letter-spacing: 3px;
   text-align: center;
-  // background-color: linear-gradient(135deg, #fa9f99, #1c1372, #421717);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  // text-shadow: 2px 2px 15px rgba(160, 240, 160, 0.5);
-  min-width: 320px;
-  max-width: 100vw;
+
   @include media(desktop) {
     width: 100vw;
     font-size: 68px;
@@ -68,7 +64,7 @@ h1 {
   padding: 12px 24px;
   margin: 10px 0;
   color: white;
-  background: #ff4b5c;
+  background-color: #4caf50;
   border-radius: 8px;
   transition: background 0.3s ease, transform 0.2s ease;
   width: 200px;
@@ -76,7 +72,7 @@ h1 {
 }
 
 .container a:hover {
-  background: #e04352;
+  background-color: #45a049;
   transform: scale(1.05);
 }
 

@@ -4,7 +4,7 @@
   top: 0;
   left: 50%;
   min-width: 100vw;
-  height: 100px;
+  height: 70px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -57,23 +57,30 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #706d6d;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  transform: perspective(1px) translateZ(0);
+
   @include media(desktop) {
-    width: 100%;
-    padding: 10px 20px;
-    width: 80px;
+    width: 100px;
     height: 60px;
+    padding: 10px 20px;
   }
 }
 
 .header button:hover {
-  background-color: #e04352;
-  transform: scale(1.05);
+  background-color: #3b3a3b;
+  transform: scale(1.02);
 }
 
 .header button:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
+
 .logo {
   width: 40px;
   height: 40px;

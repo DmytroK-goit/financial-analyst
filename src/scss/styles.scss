@@ -3,7 +3,7 @@
 @use "./common/vars" as *;
 @use "../scss/common/mixins" as *;
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "IBM Plex Mono", sans-serif;
   --second-family: "Paprika", sans-serif;
   font-size: 16px;
   line-height: 24px;

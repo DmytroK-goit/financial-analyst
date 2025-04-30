@@ -4,20 +4,30 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  // padding: 16px;
   height: 90vh;
-  min-width: 320px;
-  // max-width: 320px;
   @include media(desktop) {
-    // min-width: 320px;
-    // max-width: 375px;
+    flex-direction: row;
+    gap: 32px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 .sign-in-page {
   box-sizing: border-box;
   border-radius: 30px;
-  width: 320px;
+  min-width: 100vw;
+  min-height: 100vh;
+  @include media(desktop) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    flex-direction: row;
+    margin: 0 auto;
+  }
 }
 .sign-in-form {
   position: relative;
@@ -26,9 +36,18 @@
   margin: 0;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f8f5d4, #adc1d1);
+  // background: linear-gradient(135deg, #f8f5d4, #adc1d1);
   border-radius: 30px;
-  /* height: calc(100vh - 64px); */
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/bg_sign_in_up.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @include media(desktop) {
+    width: 100%;
+    height: 100vh;
+  }
 }
 
 .toaster-container {
@@ -77,11 +96,17 @@
 }
 
 .form-wrapper {
+  // margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 200px 16px;
+  // padding: 20px 16px;
   margin: 0 auto;
+  @include media(desktop) {
+    width: 436px;
+    margin-top: 113px;
+    margin-bottom: 100px;
+  }
 }
 
 /* -------------------TITLE SIGN IN-------------------- */
@@ -253,104 +278,4 @@
 }
 .sign-in-page .advantages-container {
   display: none;
-}
-/* ------------------Планшет------------------ */
-
-// @media screen and (min-width: 768px) and (max-width: 1439px) {
-//   .sign-in-page {
-//     display: flex;
-//     flex-direction: column;
-//     width: 100%;
-//   }
-//   .advantages-section {
-//     display: block;
-//   }
-
-//   .container {
-//     min-width: 768px;
-//     padding: 32px;
-//   }
-
-//   .sign-in-page .logo {
-//     top: 32px;
-//     left: 32px;
-//     font-size: 24px;
-//   }
-
-//   .form-wrapper {
-//     width: 436px;
-//     /* height: 506px; */
-//     padding: 32px;
-//     /* height: calc(100vh - 64px); */
-//     /* min-height: 736px; */
-//   }
-
-//   .input_main_wrapper {
-//     width: 100%;
-//   }
-
-//   .sign-in-page .form-title {
-//     font-size: 36px;
-//     line-height: 1.05556;
-//   }
-
-//   .input__wrapper label {
-//     margin-top: 20px;
-//   }
-// }
-
-// /* ------------------------Десктоп----------------- */
-
-@media screen and (min-width: 1440px) {
-  .advantages-section {
-    display: block;
-  }
-  .container {
-    min-width: 1440px;
-    /* height: 100vh; */
-    width: 100%;
-    flex-direction: row;
-    gap: 32px;
-    margin: 0 auto;
-    padding: 32px;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .sign-in-page .logo {
-    font-size: 24px;
-    top: 32px;
-
-    left: 33px;
-    margin-bottom: 126px;
-  }
-  .sign-in-page .advantages-container {
-    display: block;
-    position: relative;
-    z-index: 1;
-  }
-
-  .sign-in-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 1440px;
-    /* height: 100vh; */
-    width: 100%;
-    flex-direction: row;
-
-    margin: 0 auto;
-  }
-
-  .sign-in-form {
-    width: 100%;
-    /* height: 736px; */
-    margin-right: 32px;
-  }
-
-  .form-wrapper {
-    width: 436px;
-    margin-top: 113px;
-    margin-bottom: 100px;
-  }
 }

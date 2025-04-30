@@ -1,29 +1,54 @@
 @use "../scss/common/mixins" as *;
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
-  padding: 16px;
-  height: 100%;
+  height: 90vh;
+  @include media(desktop) {
+    flex-direction: row;
+    gap: 32px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .sign-up-page {
   box-sizing: border-box;
   border-radius: 30px;
-  height: 90vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  @include media(desktop) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    flex-direction: row;
+    margin: 0 auto;
+  }
 }
-@include media(desktop) {
-}
+
 .sign-up-form {
   position: relative;
-  background: linear-gradient(135deg, #f8f5d4, #adc1d1);
   flex-direction: column;
   display: flex;
   margin: 0;
   align-items: center;
   justify-content: center;
-  /* background-color: #f7f9fc; */
+  // background: linear-gradient(135deg, #f8f5d4, #adc1d1);
   border-radius: 30px;
   width: 100%;
-  height: calc(100vh - 64px);
+  height: 100vh;
+  background-image: url("../img/bg_sign_in_up.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @include media(desktop) {
+    width: 100%;
+    height: 100vh;
+  }
 }
 
 .toaster-container {
@@ -274,44 +299,44 @@
 // }
 
 /* ------------------------Десктоп----------------- */
-@media screen and (min-width: 1440px) {
-  .container {
-    min-width: 1440px;
-    /* height: 100vh; */
-    width: 100%;
-    flex-direction: row;
-    gap: 32px;
-    padding: 32px;
-    margin: 0 auto;
-  }
+// @media screen and (min-width: 1440px) {
+//   .container {
+//     min-width: 1440px;
+//     /* height: 100vh; */
+//     width: 100%;
+//     flex-direction: row;
+//     gap: 32px;
+//     padding: 32px;
+//     margin: 0 auto;
+//   }
 
-  .sign-up-page .logo {
-    font-size: 24px;
-    top: 32px;
-    left: 33px;
-  }
-  .sign-up-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* width: 1440px; */
-    width: 100%;
-    flex-direction: row;
-    /* gap: 32px; */
-  }
+//   .sign-up-page .logo {
+//     font-size: 24px;
+//     top: 32px;
+//     left: 33px;
+//   }
+//   .sign-up-page {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     /* width: 1440px; */
+//     width: 100%;
+//     flex-direction: row;
+//     /* gap: 32px; */
+//   }
 
-  .sign-up-form {
-    width: 100%;
-    /* height: 736px; */
-    margin-right: 32px;
-  }
+//   .sign-up-form {
+//     width: 100%;
+//     /* height: 736px; */
+//     margin-right: 32px;
+//   }
 
-  .form-wrapper {
-    /* width: 436px; */
-    /* margin-top: 74px; */
-    /* margin-bottom: 100px; */
-  }
-  .sign-up-page .advantages-container {
-    display: block;
-  }
-}
+//   .form-wrapper {
+//     /* width: 436px; */
+//     /* margin-top: 74px; */
+//     /* margin-bottom: 100px; */
+//   }
+//   .sign-up-page .advantages-container {
+//     display: block;
+//   }
+// }
