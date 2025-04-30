@@ -44,7 +44,7 @@ export const Header = () => {
             ) : (
               <img
                 className={s.avatar}
-                src="../../img/default.png"
+                src="/src/img/default.png"
                 alt="Default User Avatar"
               />
             )}

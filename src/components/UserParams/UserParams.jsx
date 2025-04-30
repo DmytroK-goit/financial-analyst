@@ -8,11 +8,15 @@ import s from "./UserParams.module.css";
 
 export const UserParams = ({ onClose }) => {
   const user = useSelector(selectUser);
+
+
   const dispatch = useDispatch();
   const [avatarFile, setAvatarFile] = useState(null);
-
+  if (!user) {
+    return <p>Завантаження даних користувача...</p>;
+  }
   const initialValues = {
-    name: user.name || "",
+    name: user.name || "Користувач",
     email: user.email || "",
     gender: user.gender || "",
     monthlyIncome: user.monthlyIncome || "",
@@ -56,7 +60,11 @@ export const UserParams = ({ onClose }) => {
     <div className={s.form}>
       <h2>Налаштування</h2>
       <div className={s.userInfo}>
-        <img className={s.avatar} src={user.avatar} alt="User Avatar" />
+        <img
+          className={s.avatar}
+          src={user.avatar || "/src/img/default.png"}
+          alt="User Avatar"
+        />
       </div>
       <Formik
         initialValues={initialValues}
@@ -81,7 +89,7 @@ export const UserParams = ({ onClose }) => {
             </Field>
             <ErrorMessage name="gender" component="div" className={s.error} />
 
-            <label>Дохід за місяць</label>
+            {/* <label>Дохід за місяць</label>
             <Field
               type="number"
               name="monthlyIncome"
@@ -91,7 +99,7 @@ export const UserParams = ({ onClose }) => {
               name="monthlyIncome"
               component="div"
               className={s.error}
-            />
+            /> */}
 
             <label>Аватар</label>
             <input

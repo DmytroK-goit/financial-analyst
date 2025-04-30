@@ -61,6 +61,7 @@ export const login = createAsyncThunk(
       toast.success("Login successful");
       setAuthHeader(data.data.accessToken);
       localStorage.setItem("token", data.data.accessToken);
+      console.log("Login response:", data);
       return data;
     } catch (error) {
       console.error("Login error details:", error.response?.data);
