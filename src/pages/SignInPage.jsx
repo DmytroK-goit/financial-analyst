@@ -5,7 +5,11 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/UserAuth/operations";
-import { selectIsLoading, selectUserCount } from "../redux/UserAuth/selectors";
+import {
+  selectError,
+  selectIsLoading,
+  selectUserCount,
+} from "../redux/UserAuth/selectors";
 import css from "./SignInPage.module.scss";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,6 +22,9 @@ const schema = yup.object().shape({
 });
 
 const SignInForm = () => {
+  const error = useSelector(selectError);
+  console.log(error);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isLoggedIn, isLoadingLogin } = useSelector((state) => state.auth);
@@ -44,11 +51,16 @@ const SignInForm = () => {
 
       if (login.fulfilled.match(result)) {
         const { accessToken, user } = result.payload.data;
-
+        toast.success(`Welcome back, ${user.name || user.email}!`);
         if (accessToken) {
-          toast.success(`Welcome back, ${user.name || user.email}!`);
+          // toast.success(`Welcome back, ${user.name || user.email}!`);
           navigate("/transaction");
         }
+      }
+      if (result.error.response.status === 401) {
+        console.log(result);
+
+        toast.error("Email or password is incorrect.");
       } else {
         const errorMessage =
           result.payload?.data?.message ||

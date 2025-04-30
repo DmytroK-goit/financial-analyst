@@ -1,4 +1,5 @@
 export const selectUser = (state) => state.auth.user;
+export const selectError = (state) => state.auth.error;
 export const selectDailyNorma = (state) => state.auth.user?.dailyNorma;
 export const selectToken = (state) => state.auth.token;
 export const selectUserName = (state) => state.auth.user?.name || "User";

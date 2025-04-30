@@ -65,7 +65,8 @@ const slice = createSlice({
         state.isRefreshing = false;
       })
       .addCase(login.rejected, (state, action) => {
-        console.error("Login failed", action.error.message);
+        console.log("Login failed", action.error.message);
+        // state.error = action.payload || action.error.message;
         state.isLoggedIn = false;
       })
 

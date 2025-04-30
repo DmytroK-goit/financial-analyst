@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const finance = axios.create({
   baseURL: "https://finance-mongo.onrender.com",
@@ -24,7 +25,8 @@ finance.interceptors.response.use(
     if (error.response && error.response.status === 401) {
       localStorage.clear();
       setAuthHeader(null);
-      window.location.href = "/";
+      toast.error("Email or password is incorrect.");
+      window.location.href = "/signin";
     }
     return Promise.reject(error);
   }
@@ -61,11 +63,9 @@ export const login = createAsyncThunk(
       toast.success("Login successful");
       setAuthHeader(data.data.accessToken);
       localStorage.setItem("token", data.data.accessToken);
-      console.log("Login response:", data);
       return data;
     } catch (error) {
       console.error("Login error details:", error.response?.data);
-
       if (error.response && error.response.status === 401) {
         toast.error("Email or password is incorrect.");
       } else {

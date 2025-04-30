@@ -103,7 +103,7 @@ const SignUpForm = () => {
         ) {
           toast.error("Invalid input. Please check your email and password.");
         } else {
-          toast.error(errorMessage || "Registration failed. Please try again.");
+          // toast.error(errorMessage || "Registration failed. Please try again.");
         }
       }
     } catch {
