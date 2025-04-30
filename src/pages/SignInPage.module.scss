@@ -112,12 +112,14 @@
 /* -------------------TITLE SIGN IN-------------------- */
 
 .sign-in-page .form-title {
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   font-weight: 700;
   font-size: 32px;
   line-height: 1;
   letter-spacing: -0.01em;
   color: var(--color-font-main);
+  @include media(desktop) {
+  }
 }
 
 /* ---------------------INPUTS----------------- */

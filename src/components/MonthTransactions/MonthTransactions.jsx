@@ -36,6 +36,19 @@ export const MonthTransactions = () => {
     "Листопад",
     "Грудень",
   ];
+  const categoryTranslations = {
+    Auto: "Авто",
+    Food: "Їжа",
+    "Home expenses": "Домашні витрати",
+    Entertainment: "Розваги",
+    Health: "Здоров'я",
+    Transport: "Транспорт",
+    Education: "Навчання",
+    Other: "Інше",
+    Salary: "Заробітня плата",
+    Credit: "Кредит",
+  };
+
   const monthName = monthNames[month - 1];
 
   const income = Array.isArray(itemsMonth.income) ? itemsMonth.income : [];
@@ -82,7 +95,10 @@ export const MonthTransactions = () => {
                         <FaArrowUp className={s.incomeIcon} />
                         <div>
                           <p className={s.amount}>+{item.amount} грн</p>
-                          <p className={s.category}>{item.category}</p>
+                          <p className={s.category}>
+                            {categoryTranslations[item.category] ||
+                              item.category}
+                          </p>
                           <p className={s.category}>
                             {new Date(item.date).toLocaleDateString("uk-UA", {
                               year: "numeric",
@@ -137,7 +153,10 @@ export const MonthTransactions = () => {
                         <FaArrowDown className={s.expenseIcon} />
                         <div>
                           <p className={s.amount}>-{item.amount} грн</p>
-                          <p className={s.category}>{item.category}</p>
+                          <p className={s.category}>
+                            {categoryTranslations[item.category] ||
+                              item.category}
+                          </p>
                           <p className={s.category}>
                             {new Date(item.date).toLocaleDateString("uk-UA", {
                               year: "numeric",

@@ -9,11 +9,13 @@ import { YearlyReport } from "../components/YearlyReport/YearlyReport";
 import ShinyText from "../components/ShinyText/ShinyText";
 import { motion } from "framer-motion";
 import { FinancialCalendar } from "../components/FinancialCalendar/FinancialCalendar";
+import { selectMonth, selectYear } from "../redux/YearMonthSlice";
 
 export const Finance = () => {
   const name = useSelector(selectUserName);
   const [showMonthTransactions, setShowMonthTransactions] = useState(false);
-
+  const month = useSelector(selectMonth);
+  const year = useSelector(selectYear);
   const toggleMonthTransactions = () => {
     setShowMonthTransactions((prev) => !prev);
   };
@@ -48,8 +50,8 @@ export const Finance = () => {
         transition={{ type: "spring", stiffness: 300 }}
       >
         {showMonthTransactions
-          ? "Сховати Місячні Транзакції"
-          : "Показати Місячні Транзакції"}
+          ? `Сховати Транзакції за ${month}.${year}`
+          : `Показати Транзакції за ${month}.${year}`}
       </motion.button>
 
       {/* Показуємо тільки якщо треба */}

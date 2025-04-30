@@ -10,6 +10,7 @@ import css from "./SignUpPage.module.scss";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
 
 const schema = yup.object().shape({
   email: yup.string().email("Invalid email").required("Email is required"),
@@ -122,7 +123,7 @@ const SignUpForm = () => {
             tabIndex="0"
           ></div>
           <div className={css["form-wrapper"]}>
-            <h2 className={css["form-title"]}>Sign Up</h2>
+            <h2 className={css["form-title"]}>Реєстрація</h2>
             <div className={css["input_main_wrapper"]}>
               <div className={css["input__wrapper"]}>
                 <label>Email</label>
@@ -131,7 +132,7 @@ const SignUpForm = () => {
                   className={`${css["input__field"]} ${
                     errors.email ? css["input__field--error"] : ""
                   }`}
-                  placeholder="Enter your email"
+                  placeholder="Введи свій email"
                   {...register("email")}
                 />
                 {errors.email && (
@@ -140,14 +141,14 @@ const SignUpForm = () => {
               </div>
 
               <div className={css["input__wrapper"]}>
-                <label>Password</label>
+                <label>Пароль</label>
                 <div className={css["input-password"]}>
                   <input
                     type={showPassword ? "text" : "password"}
                     className={`${css["input__field"]} ${
                       errors.password ? css["input__field--error"] : ""
                     }`}
-                    placeholder="Enter your password"
+                    placeholder="Введи свій пароль"
                     {...register("password")}
                   />
                   <svg
@@ -173,14 +174,14 @@ const SignUpForm = () => {
               </div>
 
               <div className={css["input__wrapper"]}>
-                <label>Confirm Password</label>
+                <label>Підтвердження паролю</label>
                 <div className={css["input-password"]}>
                   <input
                     type={showConfirmPassword ? "text" : "password"}
                     className={`${css["input__field"]} ${
                       errors.confirmPassword ? css["input__field--error"] : ""
                     }`}
-                    placeholder="Confirm your password"
+                    placeholder="Підтвердь свій пароль"
                     {...register("confirmPassword")}
                   />
                   <svg
@@ -207,14 +208,20 @@ const SignUpForm = () => {
                 )}
               </div>
             </div>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <button type="submit" className={css["submit-button"]}>
+                Реєстрація
+              </button>
+            </motion.div>
 
-            <button type="submit" className={css["submit-button"]}>
-              Sign Up
-            </button>
             <p className={css["text-link"]}>
-              Already have an account?{" "}
+              Ти уже маєш обліковий запис?{" "}
               <a href="/signin" className={css["sign-up-link"]}>
-                Sign In
+                Вхід
               </a>
             </p>
           </div>

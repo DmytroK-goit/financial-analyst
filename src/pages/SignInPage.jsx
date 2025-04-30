@@ -10,6 +10,7 @@ import css from "./SignInPage.module.scss";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoaderComponent from "../components/LoadingSpinner/LoaderComponent";
+import { motion } from "framer-motion";
 
 const schema = yup.object().shape({
   email: yup.string().email("Invalid email").required("Email is required"),
@@ -76,7 +77,7 @@ const SignInForm = () => {
 
         <form className={css["sign-in-form"]} onSubmit={handleSubmit(onSubmit)}>
           <div className={css["form-wrapper"]}>
-            <h2 className={css["form-title"]}>Sign In</h2>
+            <h2 className={css["form-title"]}>Вхід</h2>
             <div className={css["input_main_wrapper"]}>
               <div className={css["input__wrapper"]}>
                 <label>Email</label>
@@ -86,7 +87,7 @@ const SignInForm = () => {
                   className={`${css["input__field"]} ${
                     errors.email ? css["input__field--error"] : ""
                   }`}
-                  placeholder="Enter your email"
+                  placeholder="Введи свій email"
                   {...register("email")}
                   tabIndex="1"
                 />
@@ -96,7 +97,7 @@ const SignInForm = () => {
               </div>
 
               <div className={css["input__wrapper"]}>
-                <label>Password</label>
+                <label>Пароль</label>
                 <div className={css["input-password"]}>
                   <input
                     id="password"
@@ -104,7 +105,7 @@ const SignInForm = () => {
                     className={`${css["input__field"]} ${
                       errors.password ? css["input__field--error"] : ""
                     }`}
-                    placeholder="Enter your password"
+                    placeholder="Введи свій пароль"
                     {...register("password")}
                     autoComplete="current-password"
                     tabIndex="2"
@@ -137,15 +138,24 @@ const SignInForm = () => {
                 )}
               </div>
             </div>
-
-            <button type="submit" className={css["submit-button"]} tabIndex="3">
-              Sign In
-            </button>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <button
+                type="submit"
+                className={css["submit-button"]}
+                tabIndex="3"
+              >
+                Вхід
+              </button>
+            </motion.div>
 
             <p className={css["text-link"]}>
-              Don’t have an account?{" "}
+              Відсутній обліковий запис?{" "}
               <a href="/signup" className={css["sign-up-link"]} tabIndex="4">
-                Sign Up
+                Реєстрація
               </a>
             </p>
           </div>
