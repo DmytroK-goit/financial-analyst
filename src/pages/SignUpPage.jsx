@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUserCount } from "../redux/UserAuth/selectors.js";
 import { registerUser } from "../redux/UserAuth/operations";
@@ -114,7 +114,7 @@ const SignUpForm = () => {
   return (
     <section className={css["container"]}>
       <div className={css["sign-up-page"]}>
-        <ToastContainer className={css["toaster-container"]} />
+        <ToastContainer />
 
         <form className={css["sign-up-form"]} onSubmit={handleSubmit(onSubmit)}>
           <div
@@ -220,9 +220,9 @@ const SignUpForm = () => {
 
             <p className={css["text-link"]}>
               Ти уже маєш обліковий запис?{" "}
-              <a href="/signin" className={css["sign-up-link"]}>
+              <Link to="/signin" className={css["sign-up-link"]}>
                 Вхід
-              </a>
+              </Link>
             </p>
           </div>
         </form>

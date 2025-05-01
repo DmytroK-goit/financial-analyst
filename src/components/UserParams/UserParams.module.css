@@ -38,7 +38,7 @@ select {
   border: 1px solid #ccc;
 }
 
-button {
+.form button {
   background-color: #007bff;
   color: white;
   padding: 10px;
@@ -47,7 +47,7 @@ button {
   cursor: pointer;
 }
 
-button:disabled {
+.form button:disabled {
   background-color: #ccc;
 }
 

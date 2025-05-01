@@ -19,14 +19,16 @@ if (token) {
   setAuthHeader(token);
 }
 
+let isRedirecting = false;
+
 finance.interceptors.response.use(
   (response) => response,
   async (error) => {
-    if (error.response && error.response.status === 401) {
+    if (error.response?.status === 401 && !isRedirecting) {
+      isRedirecting = true;
       localStorage.clear();
       setAuthHeader(null);
-      toast.error("Email or password is incorrect.");
-      window.location.href = "/signin";
+      return Promise.reject({ ...error, isUnauthorized: true });
     }
     return Promise.reject(error);
   }
@@ -66,7 +68,7 @@ export const login = createAsyncThunk(
       return data;
     } catch (error) {
       console.error("Login error details:", error.response?.data);
-      if (error.response && error.response.status === 401) {
+      if (error.response && error.response.data.status === 401) {
         toast.error("Email or password is incorrect.");
       } else {
         toast.error("Login failed. Please try again.");

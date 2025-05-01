@@ -50,18 +50,18 @@
   }
 }
 
-.toaster-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  width: calc(100vw - 32px);
-  padding: 16px;
-  z-index: 1000;
-  width: auto;
-  display: block;
-}
+// .toaster-container {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   justify-content: center;
+//   align-items: center;
+//   width: calc(100vw - 32px);
+//   padding: 16px;
+//   z-index: 1000;
+//   width: auto;
+//   display: block;
+// }
 
 .Toastify__toast-icon {
   width: 50px;

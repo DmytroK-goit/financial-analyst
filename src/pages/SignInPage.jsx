@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/UserAuth/operations";
 import {
@@ -23,8 +23,6 @@ const schema = yup.object().shape({
 
 const SignInForm = () => {
   const error = useSelector(selectError);
-  console.log(error);
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isLoggedIn, isLoadingLogin } = useSelector((state) => state.auth);
@@ -50,27 +48,22 @@ const SignInForm = () => {
       const result = await dispatch(login(data));
 
       if (login.fulfilled.match(result)) {
-        const { accessToken, user } = result.payload.data;
-        toast.success(`Welcome back, ${user.name || user.email}!`);
+        const { accessToken } = result.payload.data;
         if (accessToken) {
-          // toast.success(`Welcome back, ${user.name || user.email}!`);
           navigate("/transaction");
         }
-      }
-      if (result.error.response.status === 401) {
-        console.log(result);
-
-        toast.error("Email or password is incorrect.");
+      } else if (result.error?.isUnauthorized) {
+        toast.error("Невірний email або пароль");
       } else {
         const errorMessage =
           result.payload?.data?.message ||
           result.error?.message ||
           "Sign-in failed. Please try again.";
-        toast.error(errorMessage);
+        // toast.error(errorMessage);
       }
     } catch (error) {
-      console.error(error);
-      toast.error("Something went wrong. Please try again.");
+      // console.error(error);
+      toast.error("Щось пішло не так. Спробуй ще раз.");
     }
   };
 
@@ -81,11 +74,14 @@ const SignInForm = () => {
   if (isLoadingLogin) {
     return <LoaderComponent />;
   }
+  // if (error) {
+  //   toast.error(error);
+  // }
 
   return (
     <section className={css["container"]}>
       <div className={css["sign-in-page"]}>
-{/*         <ToastContainer className={css["toaster-container"]} /> */}
+        <ToastContainer />
 
         <form className={css["sign-in-form"]} onSubmit={handleSubmit(onSubmit)}>
           <div className={css["form-wrapper"]}>
@@ -166,9 +162,9 @@ const SignInForm = () => {
 
             <p className={css["text-link"]}>
               Відсутній обліковий запис?{" "}
-              <a href="/signup" className={css["sign-up-link"]} tabIndex="4">
+              <Link to="/signup" className={css["sign-up-link"]} tabIndex="4">
                 Реєстрація
-              </a>
+              </Link>
             </p>
           </div>
         </form>

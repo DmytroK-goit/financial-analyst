@@ -110,7 +110,9 @@ export const AddForm = () => {
         </label>
         <ErrorMessage name="description" component="div" className={s.error} />
 
-        <button type="submit">Додати транзакцію</button>
+        <button className={s.addBtn} type="submit">
+          Додати транзакцію
+        </button>
       </Form>
     </Formik>
   );
