@@ -27,8 +27,12 @@ export const YearMonthForm = () => {
 
   useEffect(() => {
     if (!year || !month) return;
-    dispatch(getTransaction({ year, month }));
-    dispatch(getTransactionYear({ year }));
+
+    const delay = setTimeout(() => {
+      dispatch(getTransaction({ year, month }));
+      dispatch(getTransactionYear({ year }));
+    }, 1000);
+    return () => clearTimeout(delay);
   }, [year, month, dispatch]);
 
   return (
