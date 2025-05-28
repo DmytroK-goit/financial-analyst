@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectMonthTransactions } from "../../redux/Finance/selectors";
+import {
+  selectMonthTransactions,
+  selectYearTransactions,
+} from "../../redux/Finance/selectors";
 import s from "./MonthTransactions.module.scss";
 import { FaArrowUp, FaArrowDown, FaTrash, FaEdit } from "react-icons/fa";
 import { selectMonth, selectYear } from "../../redux/YearMonthSlice";
@@ -20,7 +23,12 @@ export const MonthTransactions = () => {
   const itemsMonth = useSelector(selectMonthTransactions) || {};
   const month = useSelector(selectMonth);
   const year = useSelector(selectYear);
+  const { monthly } = useSelector(selectYearTransactions);
   const dispatch = useDispatch();
+
+  const currentMonthData = monthly?.find(
+    (item) => item.month === Number(month)
+  );
 
   const monthNames = [
     "Січень",
@@ -36,6 +44,7 @@ export const MonthTransactions = () => {
     "Листопад",
     "Грудень",
   ];
+
   const categoryTranslations = {
     Auto: "Авто",
     Food: "Їжа",
@@ -56,6 +65,22 @@ export const MonthTransactions = () => {
     ? itemsMonth.expenses
     : [];
 
+  const expenseByCategory = expenses.reduce((acc, item) => {
+    const category = categoryTranslations[item.category] || item.category;
+    acc[category] = (acc[category] || 0) + item.amount;
+    return acc;
+  }, {});
+
+  let topCategory = null;
+  let topAmount = 0;
+
+  for (const [category, amount] of Object.entries(expenseByCategory)) {
+    if (amount > topAmount) {
+      topAmount = amount;
+      topCategory = category;
+    }
+  }
+
   const handleDelete = async (_id) => {
     await dispatch(delTransaction(_id));
     await dispatch(getTransaction({ year, month }));
@@ -71,6 +96,16 @@ export const MonthTransactions = () => {
     <div className={s.MonthTransactions}>
       <ShinyText>
         <h2>Фінансовий звіт за {monthName}</h2>
+        <p className={s.netTotal}>
+          Чистий підсумок:{" "}
+          <strong>{currentMonthData?.netTotal ?? "Немає даних"}</strong> грн
+        </p>
+        {topCategory && (
+          <div className={s.topCategory}>
+            <strong>Найбільші витрати:</strong>{" "}
+            {categoryTranslations[topCategory] || topCategory} — {topAmount} грн
+          </div>
+        )}
       </ShinyText>
 
       <div className={s.container}>
@@ -80,12 +115,13 @@ export const MonthTransactions = () => {
             <ul className={s.list}>
               {income.map((item) => (
                 <motion.div
+                  key={item._id}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <FadeContent
-                    blur={true}
+                    blur
                     duration={1000}
                     easing="ease-out"
                     initialOpacity={0}
@@ -138,17 +174,18 @@ export const MonthTransactions = () => {
             <ul className={s.list}>
               {expenses.map((item) => (
                 <motion.div
+                  key={item._id}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <FadeContent
-                    blur={true}
+                    blur
                     duration={1000}
                     easing="ease-out"
                     initialOpacity={0}
                   >
-                    <li key={item._id} className={s.item}>
+                    <li className={s.item}>
                       <div className={s.headInfo}>
                         <FaArrowDown className={s.expenseIcon} />
                         <div>
