@@ -10,7 +10,7 @@ export const addTransaction = createAsyncThunk(
       const { data } = await finance.post("transaction", transaction, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      toast.success("Transaction added");
+      toast.success("Транзакцію додано");
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -25,7 +25,7 @@ export const delTransaction = createAsyncThunk(
       const { data } = await finance.delete(`transaction/${_id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      toast.success("Transaction deleted");
+      toast.success("Транзакція видалена");
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -40,7 +40,7 @@ export const editTransaction = createAsyncThunk(
       const { data } = await finance.patch(`transaction/${_id}`, updatedData, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      toast.success("Transaction edited");
+      toast.success("Транзакція відредагована");
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

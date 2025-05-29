@@ -45,12 +45,12 @@ export const registerUser = createAsyncThunk(
         password: credentials.password,
       });
 
-      toast.success("Registration successful");
+      toast.success("Реєстрація успішна");
       const loginResponse = await thunkApi.dispatch(login(credentials));
       return data;
     } catch (error) {
       if (error.response && error.response.status === 409) {
-        toast.error("Email is already in use. Please try another one.");
+        toast.error("Email уже використовується. Спробуй інший");
       }
       return thunkApi.rejectWithValue(error.message);
     }
@@ -62,16 +62,16 @@ export const login = createAsyncThunk(
   async (credentials, thunkApi) => {
     try {
       const { data } = await finance.post("users/login", credentials);
-      toast.success("Login successful");
+      toast.success("Вхід успішний");
       setAuthHeader(data.data.accessToken);
       localStorage.setItem("token", data.data.accessToken);
       return data;
     } catch (error) {
       console.error("Login error details:", error.response?.data);
       if (error.response && error.response.data.status === 401) {
-        toast.error("Email or password is incorrect.");
+        toast.error("Email чи пароль невірний");
       } else {
-        toast.error("Login failed. Please try again.");
+        toast.error("Щось пішло не так. Спробуй ще раз.");
       }
 
       return thunkApi.rejectWithValue(error.message);
@@ -128,7 +128,7 @@ export const logout = createAsyncThunk("logout", async (_, thunkApi) => {
     }
     localStorage.removeItem("token");
     setAuthHeader(null);
-    toast.success("Logout successful");
+    toast.success("Вихід успішний");
   } catch (error) {
     toast.error(error.message || "Logout failed");
     return thunkApi.rejectWithValue(error.message);

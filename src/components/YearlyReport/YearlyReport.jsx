@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectYearTransactions } from "../../redux/Finance/selectors";
-import { selectYear } from "../../redux/YearMonthSlice";
+import { selectMonth, selectYear } from "../../redux/YearMonthSlice";
+import { useEffect, useRef } from "react";
 import s from "./YearlyReport.module.scss";
 
 import {
@@ -13,9 +14,31 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { toast } from "react-toastify";
+
 export const YearlyReport = () => {
   const yearData = useSelector(selectYearTransactions);
   const year = useSelector(selectYear);
+  const month = useSelector(selectMonth);
+  const shownToastMonths = useRef(new Set());
+
+  const currentMonthData = yearData?.monthly?.find(
+    (item) => item.month === Number(month)
+  );
+  useEffect(() => {
+    if (
+      currentMonthData &&
+      typeof currentMonthData.netTotal === "number" &&
+      currentMonthData.netTotal < 0 &&
+      !shownToastMonths.current.has(month)
+    ) {
+      toast.info(
+        `Увага: Твій прибуток від’ємний - ${currentMonthData.netTotal} грн.`
+      );
+      shownToastMonths.current.add(month);
+    }
+  }, [currentMonthData, month]);
+
   if (!yearData || !yearData.yearly) {
     return <p>Завантаження...</p>;
   }
@@ -81,6 +104,7 @@ export const YearlyReport = () => {
           </tbody>
         </table>
       </div>
+
       <div>
         <ResponsiveContainer
           width="100%"

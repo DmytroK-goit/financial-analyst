@@ -10,6 +10,7 @@ import ShinyText from "../components/ShinyText/ShinyText";
 import { motion } from "framer-motion";
 import { FinancialCalendar } from "../components/FinancialCalendar/FinancialCalendar";
 import { selectMonth, selectYear } from "../redux/YearMonthSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
@@ -25,6 +26,7 @@ export const Finance = () => {
 
   return (
     <div className={s.container}>
+      <ToastContainer />
       {/* <ToastContainer /> */}
       <motion.div
         whileHover={{ scale: 1.05 }}
