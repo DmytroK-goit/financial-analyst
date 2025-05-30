@@ -26,18 +26,24 @@ export const YearlyReport = () => {
     (item) => item.month === Number(month)
   );
   useEffect(() => {
-    if (
-      currentMonthData &&
-      typeof currentMonthData.netTotal === "number" &&
-      currentMonthData.netTotal < 0 &&
-      !shownToastMonths.current.has(month)
-    ) {
-      toast.info(
-        `Увага: Твій прибуток від’ємний - ${currentMonthData.netTotal} грн.`
-      );
-      shownToastMonths.current.add(month);
+  if (
+    currentMonthData &&
+    typeof currentMonthData.netTotal === "number" &&
+    !shownToastMonths.current.has(month)
+  ) {
+    const net = currentMonthData.netTotal;
+
+    if (net < 0) {
+      toast.info(`Увага: Твій прибуток від’ємний — ${net} грн.`);
+    } else if (net > 0) {
+      toast.success(`Вітаємо! Твій прибуток позитивний — ${net} грн.`);
+    } else {
+      toast.warning(`Нульовий баланс: твій прибуток складає 0 грн.`);
     }
-  }, [currentMonthData, month]);
+
+    shownToastMonths.current.add(month);
+  }
+}, [currentMonthData, month]);
 
   if (!yearData || !yearData.yearly) {
     return <p>Завантаження...</p>;
