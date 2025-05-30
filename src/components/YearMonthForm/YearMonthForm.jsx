@@ -11,6 +11,8 @@ import {
   getTransactionYear,
 } from "../../redux/Finance/operations";
 import s from "./YearMonthForm.module.scss";
+import { ToastContainer } from "react-toastify";
+import { selectIsLoading } from "../../redux/Finance/selectors";
 
 export const YearMonthForm = () => {
   const dispatch = useDispatch();
@@ -37,6 +39,7 @@ export const YearMonthForm = () => {
 
   return (
     <form className={s.form}>
+      <ToastContainer />
       <label>
         Виберіть рік:
         <input type="number" value={year} onChange={handleYearChange} />

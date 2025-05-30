@@ -54,9 +54,6 @@ export const AddForm = () => {
     await dispatch(getTransactionYear({ year }));
     resetForm();
   };
-  if (loading) {
-    return <LoaderComponent />;
-  }
 
   return (
     <Formik

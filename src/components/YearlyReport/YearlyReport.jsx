@@ -1,5 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectYearTransactions } from "../../redux/Finance/selectors";
+import {
+  selectIsLoading,
+  selectYearTransactions,
+} from "../../redux/Finance/selectors";
 import { selectMonth, selectYear } from "../../redux/YearMonthSlice";
 import { useEffect, useRef } from "react";
 import s from "./YearlyReport.module.scss";
@@ -15,35 +18,37 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { toast } from "react-toastify";
-
+import LoaderComponent from "../LoadingSpinner/LoaderComponent";
 export const YearlyReport = () => {
   const yearData = useSelector(selectYearTransactions);
   const year = useSelector(selectYear);
   const month = useSelector(selectMonth);
+  const loading = useSelector(selectIsLoading);
   const shownToastMonths = useRef(new Set());
 
   const currentMonthData = yearData?.monthly?.find(
     (item) => item.month === Number(month)
   );
+
   useEffect(() => {
-  if (
-    currentMonthData &&
-    typeof currentMonthData.netTotal === "number" &&
-    !shownToastMonths.current.has(month)
-  ) {
-    const net = currentMonthData.netTotal;
+    if (
+      currentMonthData &&
+      typeof currentMonthData.netTotal === "number" &&
+      !shownToastMonths.current.has(month)
+    ) {
+      const net = currentMonthData.netTotal;
 
-    if (net < 0) {
-      toast.info(`Увага: Твій прибуток від’ємний — ${net} грн.`);
-    } else if (net > 0) {
-      toast.success(`Вітаємо! Твій прибуток позитивний — ${net} грн.`);
-    } else {
-      toast.warning(`Нульовий баланс: твій прибуток складає 0 грн.`);
+      if (net < 0) {
+        toast.info(`Увага: Твій прибуток від’ємний — ${net} грн.`);
+      } else if (net > 0) {
+        toast.success(`Вітаємо! Твій прибуток позитивний — ${net} грн.`);
+      } else {
+        toast.warning(`Нульовий баланс: твій прибуток складає 0 грн.`);
+      }
+
+      shownToastMonths.current.add(month);
     }
-
-    shownToastMonths.current.add(month);
-  }
-}, [currentMonthData, month]);
+  }, [currentMonthData, month]);
 
   if (!yearData || !yearData.yearly) {
     return <p>Завантаження...</p>;
@@ -58,11 +63,19 @@ export const YearlyReport = () => {
   }));
 
   return (
-    <div className={s.report}>
-      <div>
+    <div className={s.reportWrapper}>
+      {" "}
+      {/* позиціонування тут */}
+      {loading && (
+        <div className={s.loaderOverlay}>
+          <LoaderComponent />
+        </div>
+      )}
+      <div className={s.report}>
         <h2 className={s.hero_year}>
           Фінансовий звіт за {year || new Date().getFullYear()}
         </h2>
+
         <div className={s.summary}>
           <p>
             💰 Загальний дохід: <strong>{yearly.totalIncome} грн</strong>
@@ -109,14 +122,8 @@ export const YearlyReport = () => {
             </tr>
           </tbody>
         </table>
-      </div>
 
-      <div>
-        <ResponsiveContainer
-          width="100%"
-          height={300}
-          margin={{ right: 10, left: 10 }}
-        >
+        <ResponsiveContainer width="100%" height={300}>
           <BarChart
             data={chartData}
             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
