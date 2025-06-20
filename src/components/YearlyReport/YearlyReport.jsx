@@ -19,6 +19,8 @@ import {
 } from "recharts";
 import { toast } from "react-toastify";
 import LoaderComponent from "../LoadingSpinner/LoaderComponent";
+import { Forecast } from "../Forecast/Forecast";
+
 export const YearlyReport = () => {
   const yearData = useSelector(selectYearTransactions);
   const year = useSelector(selectYear);
@@ -64,8 +66,6 @@ export const YearlyReport = () => {
 
   return (
     <div className={s.reportWrapper}>
-      {" "}
-      {/* позиціонування тут */}
       {loading && (
         <div className={s.loaderOverlay}>
           <LoaderComponent />
@@ -75,17 +75,24 @@ export const YearlyReport = () => {
         <h2 className={s.hero_year}>
           Фінансовий звіт за {year || new Date().getFullYear()}
         </h2>
-
-        <div className={s.summary}>
-          <p>
-            💰 Загальний дохід: <strong>{yearly.totalIncome} грн</strong>
-          </p>
-          <p>
-            💸 Загальні витрати: <strong>{yearly.totalExpense} грн</strong>
-          </p>
-          <p>
-            📈 Чистий дохід: <strong>{yearly.netTotal} грн</strong>
-          </p>
+        <div className={s.summaryContainer}>
+          <div
+            className={s.summary}
+            title={`Загальні значення доходів і витрат за ${year} рік`}
+          >
+            <p>
+              💰 Загальний дохід: <strong>{yearly.totalIncome} грн</strong>
+            </p>
+            <p>
+              💸 Загальні витрати: <strong>{yearly.totalExpense} грн</strong>
+            </p>
+            <p>
+              📈 Чистий дохід: <strong>{yearly.netTotal} грн</strong>
+            </p>
+          </div>
+          <div>
+            <Forecast />
+          </div>
         </div>
 
         <table className={s.table}>

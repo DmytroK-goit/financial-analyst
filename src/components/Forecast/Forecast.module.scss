@@ -1,0 +1,24 @@
+@use "../../scss/common/mixins" as *;
+.forecast {
+  padding: 6px;
+  @include media(desktop) {
+    border: 4px solid #ddd;
+    border-radius: 6px;
+    background-color: rgba(37, 221, 117, 0.1);
+    backdrop-filter: blur(6px);
+  }
+}
+.forecastTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  @include media(desktop) {
+    font-size: 20px;
+  }
+}
+.forecastText {
+  font-size: 12px;
+  @include media(desktop) {
+    font-size: 15px;
+  }
+}
