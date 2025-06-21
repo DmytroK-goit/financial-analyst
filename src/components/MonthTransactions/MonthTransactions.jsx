@@ -53,6 +53,7 @@ export const MonthTransactions = () => {
     Health: "Здоров'я",
     Transport: "Транспорт",
     Education: "Навчання",
+    Clothing: "Одяг",
     Other: "Інше",
     Salary: "Заробітня плата",
     Credit: "Кредит",
@@ -91,24 +92,31 @@ export const MonthTransactions = () => {
     setSelectedTransaction(transaction);
     setIsModalOpen(true);
   };
+  const topAmountPercent =
+    topAmount && currentMonthData?.expense
+      ? ((topAmount / currentMonthData.expense) * 100).toFixed(2)
+      : 0;
 
   return (
     <div className={s.MonthTransactions}>
       <ShinyText>
         <h2>Фінансовий звіт за {monthName}</h2>
+      </ShinyText>
+
+      <div className={s.container}>
         <p className={s.netTotal}>
           Чистий підсумок:{" "}
           <strong>{currentMonthData?.netTotal ?? "Немає даних"}</strong> грн
         </p>
         {topCategory && (
           <div className={s.topCategory}>
-            <strong>Найбільші витрати:</strong>{" "}
+            <strong>Найбільші витрати:</strong>
+            <br />
             {categoryTranslations[topCategory] || topCategory} — {topAmount} грн
+            <br />
+            🧾 Частка від усіх витрат: <strong>{topAmountPercent}%</strong>
           </div>
         )}
-      </ShinyText>
-
-      <div className={s.container}>
         <div className={s.column}>
           <h3 className={s.incomeTitle}>💰 Доходи</h3>
           {income.length > 0 ? (

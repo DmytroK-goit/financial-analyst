@@ -25,7 +25,7 @@
   font-size: 18px;
   @include media(desktop) {
     font-size: 48px;
-    margin-top: 120px;
+    margin-top: 10%;
   }
 }
 .forms {
@@ -52,7 +52,6 @@
 }
 .toggleButton {
   margin: 20px auto;
-
   padding: 10px 20px;
   font-size: 18px;
   background-color: #4caf50;

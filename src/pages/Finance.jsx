@@ -12,9 +12,6 @@ import { FinancialCalendar } from "../components/FinancialCalendar/FinancialCale
 import { selectMonth, selectYear } from "../redux/YearMonthSlice";
 import { ToastContainer, toast } from "react-toastify";
 
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-
 export const Finance = () => {
   const name = useSelector(selectUserName);
   const [showMonthTransactions, setShowMonthTransactions] = useState(false);
@@ -27,7 +24,7 @@ export const Finance = () => {
   return (
     <div className={s.container}>
       <ToastContainer />
-      {/* <ToastContainer /> */}
+
       <motion.div
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -47,7 +44,6 @@ export const Finance = () => {
         <YearlyReport />
       </div>
 
-      {/* Кнопка для відкриття/закриття */}
       <motion.button
         className={s.toggleButton}
         onClick={toggleMonthTransactions}
@@ -60,7 +56,6 @@ export const Finance = () => {
           : `Показати Транзакції за ${month}.${year}`}
       </motion.button>
 
-      {/* Показуємо тільки якщо треба */}
       {showMonthTransactions && <MonthTransactions />}
 
       {/* <FinancialCalendar /> */}
